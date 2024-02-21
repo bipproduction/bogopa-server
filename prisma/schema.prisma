@@ -1,0 +1,298 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String        @id @default(cuid())
+  name             String
+  email            String?       @unique
+  phone            String?       @unique
+  password         String
+  dateBirth        DateTime      @db.Date
+  gender           Int           @default(1) //1 : laki-laki, 2 : perempuan
+  bio              String
+  isVerif          Boolean       @default(false)
+  isActive         Boolean       @default(true)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  UserPhoto        UserPhoto[]
+  UserSetting      UserSetting[]
+  DatingLike       DatingLike[]  @relation("UserToNgeLike")
+  DatingUserDiLike DatingLike[]  @relation("UserToDiLike")
+  ChatUser1        Chat[]        @relation("UserToChat1")
+  ChatUser2        Chat[]        @relation("UserToChat2")
+  ChatMessageFrom  ChatMessage[] @relation("UserToMessageFrom")
+  ChatMessageTo    ChatMessage[] @relation("UserToMessageTo")
+  Live             Live[]
+  LiveViewer       LiveViewer[]
+  VipPayment       VipPayment[]
+  VipUser          VipUser[]
+  LiveComment      LiveComment[]
+  GiftUser         GiftUser[]
+  GiftPayment      GiftPayment[]
+}
+
+model UserPhoto {
+  id        String   @id @default(cuid())
+  User      User     @relation(fields: [idUser], references: [id])
+  idUser    String
+  img       String
+  isMain    Boolean  @default(false)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserSetting {
+  id             String   @id @default(cuid())
+  User           User     @relation(fields: [idUser], references: [id])
+  idUser         String
+  interestGender Int      @default(1) //1 : laki-laki, 2 : perempuan
+  range          Int      @default(0)
+  ageMin         Int      @default(18)
+  ageMax         Int      @default(100)
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model DatingLike {
+  id           String   @id @default(cuid())
+  UserNgeLike  User     @relation("UserToNgeLike", fields: [idUser], references: [id], map: "UserNgeLike")
+  idUser       String
+  UserDiLike   User     @relation("UserToDiLike", fields: [idUserDiLike], references: [id], map: "UserDiLike")
+  idUserDiLike String
+  isSuper      Boolean  @default(true)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Chat {
+  id          String        @id @default(cuid())
+  User1       User          @relation("UserToChat1", fields: [idUser1], references: [id], map: "UserChat1")
+  idUser1     String
+  User2       User          @relation("UserToChat2", fields: [idUser2], references: [id], map: "UserChat2")
+  idUser2     String
+  isActive    Boolean       @default(true) // isConnect
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  ChatMessage ChatMessage[]
+}
+
+model ChatMessage {
+  id            String   @id @default(cuid())
+  Chat          Chat     @relation(fields: [idChat], references: [id])
+  idChat        String
+  UserFrom      User     @relation("UserToMessageFrom", fields: [idUserFrom], references: [id], map: "UserMessageFrom")
+  idUserFrom    String
+  UserTo        User     @relation("UserToMessageTo", fields: [idUserTo], references: [id], map: "UserMessageTo")
+  idUserTo      String
+  message       String   @db.Text // untuk menyimpan pesan atau file photo dan video (klo isFile = true)
+  time          DateTime
+  isRead        Boolean  @default(false)
+  isDelUserFrom Boolean  @default(false)
+  isDelUserTo   Boolean  @default(false)
+  isFile        Boolean  @default(false)
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Live {
+  id          String        @id @default(cuid())
+  User        User          @relation(fields: [idUser], references: [id])
+  idUser      String
+  judul       String
+  img         String
+  timeStart   DateTime
+  timeEnd     DateTime
+  isActive    Boolean       @default(true) // isOn
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  LiveViewer  LiveViewer[]
+  LiveComment LiveComment[]
+}
+
+model LiveViewer {
+  id        String   @id @default(cuid())
+  Live      Live     @relation(fields: [idLive], references: [id])
+  idLive    String
+  User      User     @relation(fields: [idUser], references: [id])
+  idUser    String
+  like      Int      @default(0)
+  isActive  Boolean  @default(true) // isWatch
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model LiveComment {
+  id        String   @id @default(cuid())
+  Live      Live     @relation(fields: [idLive], references: [id])
+  idLive    String
+  User      User     @relation(fields: [idUser], references: [id])
+  idUser    String
+  comment   String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Vip {
+  id         Int          @id @default(autoincrement())
+  name       String
+  price      Int          @default(0)
+  isActive   Boolean      @default(true)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  VipDetail  VipDetail[]
+  VipPayment VipPayment[]
+  VipUser    VipUser[]
+}
+
+model VipDetail {
+  id        String   @id @default(cuid())
+  Vip       Vip      @relation(fields: [idVip], references: [id])
+  idVip     Int
+  name      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VipPayment {
+  id            String   @id @default(cuid())
+  Vip           Vip      @relation(fields: [idVip], references: [id])
+  idVip         Int
+  User          User     @relation(fields: [idUser], references: [id])
+  idUser        String
+  totalPrice    Int
+  statusPayment Int      @default(0) // blm bayar
+  timePayment   DateTime
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model VipUser {
+  id        String   @id @default(cuid())
+  Vip       Vip      @relation(fields: [idVip], references: [id])
+  idVip     Int
+  User      User     @relation(fields: [idUser], references: [id])
+  idUser    String
+  dateFrom  DateTime @db.Date
+  dateTo    DateTime @db.Date
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Gift {
+  id          Int           @id @default(autoincrement())
+  name        String
+  img         String
+  price       Int           @default(0)
+  isActive    Boolean       @default(true)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  GiftUser    GiftUser[]
+  GiftPayment GiftPayment[]
+}
+
+model GiftUser {
+  id        Int      @id @default(autoincrement())
+  Gift      Gift     @relation(fields: [idGift], references: [id])
+  idGift    Int
+  User      User     @relation(fields: [idUser], references: [id])
+  idUser    String
+  value     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model GiftPayment {
+  id            Int      @id @default(autoincrement())
+  Gift          Gift     @relation(fields: [idGift], references: [id])
+  idGift        Int
+  User          User     @relation(fields: [idUser], references: [id])
+  idUser        String
+  value         Int
+  totalPrice    Int
+  statusPayment Int      @default(0) // blm bayar
+  timePayment   DateTime
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model AdminRole {
+  id          Int           @id @default(autoincrement())
+  name        String
+  isActive    Boolean       @default(true)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  AdminUser   AdminUser[]
+  AdminAccess AdminAccess[]
+}
+
+model AdminComponent {
+  id          Int           @id @default(autoincrement())
+  name        String
+  link        String
+  grup        String?
+  isActive    Boolean       @default(true)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  AdminAccess AdminAccess[]
+  AdminLog    AdminLog[]
+}
+
+model AdminUser {
+  id          Int       @id @default(autoincrement())
+  AdminRole   AdminRole @relation(fields: [idAdminRole], references: [id])
+  idAdminRole Int
+  name        String
+  email       String    @unique
+  phone       String
+  password    String
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model AdminAccess {
+  id               String         @id @default(cuid())
+  AdminRole        AdminRole      @relation(fields: [idAdminRole], references: [id])
+  idAdminRole      Int
+  AdminComponent   AdminComponent @relation(fields: [idAdminComponent], references: [id])
+  idAdminComponent Int
+  name             String
+  email            String         @unique
+  phone            String
+  password         String
+  isActive         Boolean        @default(true)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+}
+
+model AdminLog {
+  id               String         @id @default(cuid())
+  AdminComponent   AdminComponent @relation(fields: [idAdminComponent], references: [id])
+  idAdminComponent Int
+  activity         String
+  description      String
+  idContent        String
+  tableContent     String
+  isActive         Boolean        @default(true)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+}
