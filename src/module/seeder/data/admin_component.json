@@ -1,0 +1,38 @@
+[
+   {
+      "id": 1,
+      "name": "User",
+      "grup": "A",
+      "link": "/dashboard"
+   },
+   {
+      "id": 2,
+      "name": "Vip",
+      "grup": "A",
+      "link": "/dashboard/vip"
+   },
+   {
+      "id": 3,
+      "name": "Gift",
+      "grup": "A",
+      "link": "/dashboard/gift"
+   },
+   {
+      "id": 4,
+      "name": "Transaksi",
+      "grup": "A",
+      "link": "/dashboard/transaksi"
+   },
+   {
+      "id": 5,
+      "name": "Admin",
+      "grup": "A",
+      "link": "/dashboard/admin"
+   },
+   {
+      "id": 6,
+      "name": "Role",
+      "grup": "A",
+      "link": "/dashboard/role"
+   }
+]
