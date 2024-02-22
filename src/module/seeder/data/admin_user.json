@@ -1,0 +1,34 @@
+[
+   {
+      "id": 1,
+      "idRole":1,
+      "name": "Amalia Dev",
+      "email": "amalia_dev@bogopa.com",
+      "password": "amalia@developer",
+      "phone": "628980185458"
+   },
+   {
+      "id": 2,
+      "idRole":1,
+      "name": "Lukman",
+      "email": "lukman_dev@bogopa.com",
+      "password": "lukman@developer",
+      "phone": "6287701790942"
+   },
+   {
+      "id": 3,
+      "idRole":1,
+      "name": "Malik",
+      "email": "malik_dev@bogopa.com",
+      "password": "malik@developer",
+      "phone": "6289697338821"
+   },
+   {
+      "id": 4,
+      "idRole":2,
+      "name": "Amalia Admin",
+      "email": "amalia_admin@bogopa.com",
+      "password": "amalia@admin",
+      "phone": "628980185458"
+   }
+]

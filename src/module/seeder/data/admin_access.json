@@ -1,0 +1,52 @@
+[
+   {
+      "id": "pertama",
+      "idRole": 1,
+      "idComponent": 1
+   },
+   {
+      "id": "kedua",
+      "idRole": 1,
+      "idComponent": 2
+   },
+   {
+      "id": "ketiga",
+      "idRole": 1,
+      "idComponent": 3
+   },
+   {
+      "id": "keempat",
+      "idRole": 1,
+      "idComponent": 4
+   },
+   {
+      "id": "kelima",
+      "idRole": 1,
+      "idComponent": 5
+   },
+   {
+      "id": "keenam",
+      "idRole": 1,
+      "idComponent": 6
+   },
+   {
+      "id": "ketujuh",
+      "idRole": 2,
+      "idComponent": 1
+   },
+   {
+      "id": "kedelapan",
+      "idRole": 2,
+      "idComponent": 2
+   },
+   {
+      "id": "kesembilan",
+      "idRole": 2,
+      "idComponent": 3
+   },
+   {
+      "id": "kesepuluh",
+      "idRole": 2,
+      "idComponent": 4
+   }
+]

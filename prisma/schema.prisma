@@ -275,10 +275,6 @@ model AdminAccess {
   idAdminRole      Int
   AdminComponent   AdminComponent @relation(fields: [idAdminComponent], references: [id])
   idAdminComponent Int
-  name             String
-  email            String         @unique
-  phone            String
-  password         String
   isActive         Boolean        @default(true)
   createdAt        DateTime       @default(now())
   updatedAt        DateTime       @updatedAt
