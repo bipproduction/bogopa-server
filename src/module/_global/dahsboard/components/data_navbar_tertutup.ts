@@ -1,44 +1,46 @@
 import { MdStorage } from "react-icons/md";
+import { HiHome, HiGift, HiCurrencyDollar } from "react-icons/hi";
+import { RiVipFill } from "react-icons/ri";
 
 export const DataNavbarTertutup = [
     {
         key: 1,
         label: "USER",
-        link: "/",
-        icon: MdStorage,
+        link: "/home",
+        icon: HiHome,
      },
     {
-        key: 1,
+        key: 2,
         label: "VIP",
         link: "/vip",
-        icon: MdStorage,
+        icon: RiVipFill,
      },
     {
-        key: 1,
+        key: 3,
         label: "GIFT",
         link: "/gift",
-        icon: MdStorage,
+        icon: HiGift,
      },
     {
-        key: 1,
+        key: 4,
         label: "TRANSAKSI",
         link: "/transaksi",
-        icon: MdStorage,
+        icon: HiCurrencyDollar,
      },
     {
-        key: 1,
+        key: 5,
         label: "ADMIN",
         link: "/admin",
         icon: MdStorage,
      },
     {
-        key: 1,
+        key: 6,
         label: "ROLE",
         link: "/role",
         icon: MdStorage,
      },
     {
-        key: 1,
+        key: 7,
         label: "LOG",
         link: "/log",
         icon: MdStorage,

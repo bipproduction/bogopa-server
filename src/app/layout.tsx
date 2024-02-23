@@ -3,10 +3,18 @@
 import '@mantine/core/styles.css';
 
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { Nunito } from "next/font/google";
+
+const nunito = Nunito({
+  weight: ["200","300","400", "500", "600", "700", "800", "900", "1000"],
+  subsets: ["latin"],
+  display: "fallback",
+});
 
 export const metadata = {
-  title: 'My Mantine app',
-  description: 'I have followed setup instructions carefully',
+  
+  title: 'BOGOPA',
+  description: 'BOGOPA',
 };
 
 export default function RootLayout({
@@ -19,7 +27,7 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body>
+      <body style={nunito.style}>
         <MantineProvider>{children}</MantineProvider>
       </body>
     </html>
