@@ -3,36 +3,42 @@
       "id": 1,
       "name": "User",
       "grup": "A",
-      "link": "/dashboard"
+      "link": "/user"
    },
    {
       "id": 2,
       "name": "Vip",
       "grup": "A",
-      "link": "/dashboard/vip"
+      "link": "/vip"
    },
    {
       "id": 3,
       "name": "Gift",
       "grup": "A",
-      "link": "/dashboard/gift"
+      "link": "/gift"
    },
    {
       "id": 4,
       "name": "Transaksi",
       "grup": "A",
-      "link": "/dashboard/transaksi"
+      "link": "/transaksi"
    },
    {
       "id": 5,
       "name": "Admin",
       "grup": "A",
-      "link": "/dashboard/admin"
+      "link": "/admin"
    },
    {
       "id": 6,
       "name": "Role",
       "grup": "A",
-      "link": "/dashboard/role"
+      "link": "/role"
+   },
+   {
+      "id": 7,
+      "name": "Log",
+      "grup": "A",
+      "link": "/log-admin"
    }
 ]
