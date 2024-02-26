@@ -32,6 +32,7 @@
     "@tiptap/react": "^2.2.3",
     "@tiptap/starter-kit": "^2.2.3",
     "dayjs": "^1.11.10",
+    "echarts": "^5.5.0",
     "embla-carousel-react": "^8.0.0",
     "jotai": "^2.6.5",
     "next": "14.0.4",
