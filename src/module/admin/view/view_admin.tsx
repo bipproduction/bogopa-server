@@ -1,14 +1,10 @@
 import React from 'react';
 
-function Page() {
+export default function ViewAdmin() {
   return (
-    <>
     <div>
-      Page
+      ViewAdmin
     </div>
-
-    </>
   );
 }
 
-export default Page;

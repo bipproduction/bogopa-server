@@ -1,10 +1,9 @@
+import { ViewVip } from '@/module/vip';
 import React from 'react';
 
 function Page() {
   return (
-    <div>
-      Page
-    </div>
+    <ViewVip/>
   );
 }
 

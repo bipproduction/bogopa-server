@@ -1,13 +1,22 @@
 import { MdStorage } from "react-icons/md";
-import { HiHome, HiGift, HiCurrencyDollar } from "react-icons/hi";
+import { HiHome, HiGift, HiCurrencyDollar, HiViewGrid } from "react-icons/hi";
+import { HiUserCircle, HiUserGroup } from "react-icons/hi2";
 import { RiVipFill } from "react-icons/ri";
+import { FaUserLock } from "react-icons/fa"
+import { FaHouseUser } from "react-icons/fa6";
 
 export const DataNavbarTertutup = [
     {
+        key: 8,
+        label: "DASHBOARD",
+        link: "/dashboard",
+        icon: HiViewGrid,
+     },
+    {
         key: 1,
         label: "USER",
-        link: "/home",
-        icon: HiHome,
+        link: "/user",
+        icon: FaHouseUser,
      },
     {
         key: 2,
@@ -31,18 +40,18 @@ export const DataNavbarTertutup = [
         key: 5,
         label: "ADMIN",
         link: "/admin",
-        icon: MdStorage,
+        icon: HiUserCircle,
      },
     {
         key: 6,
         label: "ROLE",
         link: "/role",
-        icon: MdStorage,
+        icon: HiUserGroup,
      },
     {
         key: 7,
         label: "LOG",
         link: "/log",
-        icon: MdStorage,
+        icon: FaUserLock,
      },
 ]

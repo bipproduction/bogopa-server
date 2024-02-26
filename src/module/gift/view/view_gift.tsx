@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function ViewUser() {
+export default function ViewGift() {
   return (
     <div>
-      ViewUser
+      ViewGift
     </div>
   );
 }

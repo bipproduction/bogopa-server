@@ -1,10 +1,9 @@
+import { ViewRole } from '@/module/role';
 import React from 'react';
 
 function Page() {
   return (
-    <div>
-      Page
-    </div>
+    <ViewRole/>
   );
 }
 

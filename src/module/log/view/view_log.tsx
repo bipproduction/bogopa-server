@@ -1,10 +1,9 @@
 import React from 'react';
 
-export default function ViewUser() {
+export default function ViewLog() {
   return (
     <div>
-      ViewUser
+      ViewLog
     </div>
   );
 }
-

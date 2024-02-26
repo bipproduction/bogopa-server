@@ -1,10 +1,9 @@
+import { ViewAdmin } from '@/module/admin';
 import React from 'react';
 
 function Page() {
   return (
-    <div>
-      Page
-    </div>
+    <ViewAdmin/>
   );
 }
 

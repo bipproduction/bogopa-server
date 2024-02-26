@@ -9,6 +9,7 @@ import { ActionIcon, AppShell, AppShellNavbar, AppShellSection, Box, Burger, Div
 import { DataNavbarBuka } from '../components/data_navbar_buka';
 import { DataNavbarTertutup } from '../components/data_navbar_tertutup';
 import { Warna } from '../../bin/WARNA';
+import { Avatar } from '@mantine/core'
 
 export default function LayoutDashboard({ children }: { children: React.ReactNode }) {
 //   const [valOpenModal, setOpenModal] = useAtom(isModalLayout)
@@ -32,8 +33,8 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
             <AppShellNavbar pl={23} pt={20} bg={Warna.bgNavbarKecil} style={{
               border: "none"
             }}>
-              <Group pl={11} pt={10}>
-                <Text fw={"bold"} fz={20} c={"dark"}>BG</Text>
+              <Group>
+              <Avatar color="cyan" radius="xl" size={'lg'}>MA</Avatar>
                 <Burger opened={opened} color="rgba(255, 255, 255, 1)" onClick={toggle} hiddenFrom="sm" size="sm" />
               </Group>
               <Group
@@ -89,6 +90,13 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
           <AppShellNavbar   bg={Warna.bgNavbarBesar} style={{
             border: "none"
           }} pt={10}>
+            <Group pl={15} pb={15} pt={10}>
+            <Avatar color="cyan" radius="xl" size={'lg'}>MA</Avatar>
+            <Box>
+              <Text fw={"bold"}>Moh Alif</Text>
+              <Text>Admin</Text>
+            </Box>
+            </Group>
             {DataNavbarBuka.map((item) => {
               return (
                 <Box key={item.key} m={5} mt={5} pl={10} pr={10}>

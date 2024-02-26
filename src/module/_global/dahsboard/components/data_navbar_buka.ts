@@ -2,9 +2,15 @@ import { MdStorage } from "react-icons/md";
 
 export const DataNavbarBuka = [
     {
+        key: 8,
+        label: "DASHBOARD",
+        link: "/dashboard",
+        icon: MdStorage,
+     },
+    {
         key: 1,
         label: "USER",
-        link: "/home",
+        link: "/user",
         icon: MdStorage,
      },
     {
@@ -44,3 +50,4 @@ export const DataNavbarBuka = [
         icon: MdStorage,
      },
 ]
+
