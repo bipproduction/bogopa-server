@@ -51,7 +51,7 @@ export default function Login() {
               bg={"white"}
               c={"#005B41"}
               onClick={() => {
-                router.push('/home')
+                router.push('/dashboard')
               }}
             >
               Login
