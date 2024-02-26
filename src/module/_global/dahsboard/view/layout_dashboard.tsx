@@ -104,18 +104,23 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                     active
                     style={{ borderRadius: 10, }}
                     label={active === item.link ? (
-                      <Box>
-                        <Text onClick={() => router.push(item.link)} c={"#6073e3"}>
-                          {item.label}
-                        </Text>
-                      </Box>
+                      <Group>
+                        <item.icon size={25} color='#6073e3' />
+                        <Box>
+                          <Text onClick={() => router.push(item.link)} c={"#6073e3"}>
+                            {item.label}
+                          </Text>
+                        </Box>
+                      </Group>
                     ) : (
-                      <Box>
-                        <Text onClick={() => router.push(item.link)} c={Warna.abuAbu}>
-                          {item.label}
-                        </Text>
-
-                      </Box>
+                      <Group>
+                        <item.icon size={25} color={Warna.abuAbu} />
+                        <Box>
+                          <Text onClick={() => router.push(item.link)} c={Warna.abuAbu}>
+                            {item.label}
+                          </Text>
+                        </Box>
+                      </Group>
                     )
                     }
                     onClick={() => {
@@ -167,7 +172,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
               padding: '15px 30px',
               borderRadius: 10,
               // boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
-              border:'2px solid #dddddd'
+              border: '2px solid #dddddd'
             }}
               mih={"97vh"}
             >
