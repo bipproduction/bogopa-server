@@ -12,7 +12,7 @@ import { Warna } from '../../bin/WARNA';
 import { Avatar } from '@mantine/core'
 
 export default function LayoutDashboard({ children }: { children: React.ReactNode }) {
-//   const [valOpenModal, setOpenModal] = useAtom(isModalLayout)
+  //   const [valOpenModal, setOpenModal] = useAtom(isModalLayout)
   const [opened, { toggle }] = useDisclosure();
   const [isOpenNavbar, setOpenNavbar] = useState(false)
   const [isNavOpt, setNavOpt] = useState({ width: 250, breakpoint: 'sm', collapsed: { mobile: isOpenNavbar } })
@@ -34,7 +34,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
               border: "none"
             }}>
               <Group>
-              <Avatar color="cyan" radius="xl" size={'lg'}>MA</Avatar>
+                <Avatar color="cyan" radius="xl" size={'lg'}>MA</Avatar>
                 <Burger opened={opened} color="rgba(255, 255, 255, 1)" onClick={toggle} hiddenFrom="sm" size="sm" />
               </Group>
               <Group
@@ -76,8 +76,8 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                   </ActionIcon>
                 </Group>
                 <Group justify='center' >
-                  <ActionIcon variant='subtle' 
-                //   onClick={() => setOpenModal(true)}
+                  <ActionIcon variant='subtle'
+                  //   onClick={() => setOpenModal(true)}
                   >
                     <RiLogoutCircleRLine size={30} color={Warna.abuAbu} />
                   </ActionIcon>
@@ -87,25 +87,25 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
           )
         }
         {!isOpenNavbar &&
-          <AppShellNavbar   bg={Warna.bgNavbarBesar} style={{
+          <AppShellNavbar bg={Warna.bgNavbarBesar} style={{
             border: "none"
           }} pt={10}>
             <Group pl={15} pb={15} pt={10}>
-            <Avatar color="cyan" radius="xl" size={'lg'}>MA</Avatar>
-            <Box>
-              <Text fw={"bold"}>Moh Alif</Text>
-              <Text>Admin</Text>
-            </Box>
+              <Avatar color="cyan" radius="xl" size={'lg'}>MA</Avatar>
+              <Box>
+                <Text fw={"bold"}>Moh Alif</Text>
+                <Text>Admin</Text>
+              </Box>
             </Group>
             {DataNavbarBuka.map((item) => {
               return (
                 <Box key={item.key} m={5} mt={5} pl={10} pr={10}>
                   <NavLink
                     active
-                    style={{borderRadius: 10,}}
+                    style={{ borderRadius: 10, }}
                     label={active === item.link ? (
                       <Box>
-                        <Text fw={'bold'} onClick={() => router.push(item.link)} c={"#6073e3"}>
+                        <Text onClick={() => router.push(item.link)} c={"#6073e3"}>
                           {item.label}
                         </Text>
                       </Box>
@@ -122,7 +122,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                       router.push(item.link);
                     }}
                     c={"pink"}
-                    variant={active == item.link ?'light' : 'subtle'}
+                    variant={active == item.link ? 'light' : 'subtle'}
                   />
                 </Box>
               )
@@ -134,20 +134,20 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                 cursor: 'pointer',
               }}
             >
-              <Group justify='center' pl={20} pb={40}
-            //   onClick={() => setOpenModal(true)}
-            onClick={() => {
-              setNavOpt({ width: 100, breakpoint: 'sm', collapsed: { mobile: isOpenNavbar } })
-              setOpenNavbar(true)
-            }}
+              <Group justify='center' pl={20} pb={10}
+                //   onClick={() => setOpenModal(true)}
+                onClick={() => {
+                  setNavOpt({ width: 100, breakpoint: 'sm', collapsed: { mobile: isOpenNavbar } })
+                  setOpenNavbar(true)
+                }}
               >
-                <ActionIcon  variant='subtle' c={Warna.abuAbu}>
-                <MdArrowBackIos size={30} />
-              </ActionIcon>
+                <ActionIcon variant='subtle' c={Warna.abuAbu}>
+                  <MdArrowBackIos size={30} />
+                </ActionIcon>
                 <Text c={Warna.abuAbu}>MINIMIZE</Text>
               </Group>
-              <Group justify='center' pl={20} 
-            //   onClick={() => setOpenModal(true)}
+              <Group justify='center' pl={20}
+              //   onClick={() => setOpenModal(true)}
               >
                 <ActionIcon variant='subtle'>
                   <RiLogoutCircleRLine size={30} color={Warna.abuAbu} />
@@ -155,22 +155,23 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                 <Text c={Warna.abuAbu}>LOGOUT</Text>
               </Group>
             </Group>
-            
+
           </AppShellNavbar>
         }
-        <AppShell.Main 
-        bg={Warna.bgDashboard}
+        <AppShell.Main
+          bg={Warna.bgDashboard}
         >
           <Box pt={10} pr={10} pb={10} >
             <Box style={{
               backgroundColor: "white",
-              padding: 20,
+              padding: '15px 30px',
               borderRadius: 10,
-              boxShadow: "10px 10px 10px 0px rgba(0,0,0,0.15)",
+              // boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
+              border:'2px solid #dddddd'
             }}
-            mih={"97vh"}
+              mih={"97vh"}
             >
-            {children}
+              {children}
             </Box>
           </Box>
         </AppShell.Main>
