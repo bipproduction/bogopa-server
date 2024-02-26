@@ -3,13 +3,13 @@ import { MdStorage } from "react-icons/md";
 export const DataNavbarBuka = [
     {
         key: 8,
-        label: "DASHBOARD",
+        label: "Dashboard",
         link: "/dashboard",
         icon: MdStorage,
      },
     {
         key: 1,
-        label: "USER",
+        label: "User",
         link: "/user",
         icon: MdStorage,
      },
@@ -21,31 +21,31 @@ export const DataNavbarBuka = [
      },
     {
         key: 3,
-        label: "GIFT",
+        label: "Gift",
         link: "/gift",
         icon: MdStorage,
      },
     {
         key: 4,
-        label: "TRANSAKSI",
+        label: "Transaksi",
         link: "/transaksi",
         icon: MdStorage,
      },
     {
         key: 5,
-        label: "ADMIN",
+        label: "Admin",
         link: "/admin",
         icon: MdStorage,
      },
     {
         key: 6,
-        label: "ROLE",
+        label: "Role",
         link: "/role",
         icon: MdStorage,
      },
     {
         key: 7,
-        label: "LOG",
+        label: "Log Admin",
         link: "/log",
         icon: MdStorage,
      },
