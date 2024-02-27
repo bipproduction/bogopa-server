@@ -8,7 +8,7 @@ import { Box } from "@mantine/core";
 import { Warna } from "@/module/_global";
 
 
-export default function EchartTransaksiPerhari() {
+export default function EchartLive() {
     const [options, setOptions] = useState<EChartsOption>({})
 
     useShallowEffect(() => {
@@ -18,7 +18,7 @@ export default function EchartTransaksiPerhari() {
     const loadData = () => {
         const option: EChartsOption = {
             title: {
-              text: 'Transaksi Perhari',
+              text: 'Total Live',
               textStyle: {
                 fontSize: 20,
                 fontWeight: 'bold',
@@ -57,7 +57,7 @@ export default function EchartTransaksiPerhari() {
                 },
                 series: [
                     {
-                        data: [23, 54, 42, 16, 53, 81, 53, 32],
+                        data: [40, 20, 40, 76, 83, 12, 10, 42],
                         type: 'line',
                         color: Warna.ungu,
                         showSymbol: false,
@@ -83,14 +83,14 @@ export default function EchartTransaksiPerhari() {
 
     return (
         <>
-            <Box pt={20}>
+            <Box>
                 <Box style={{
                     border: `1px solid ${Warna.warnaBorder}`,
                     borderRadius: 10,
                     boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
                 }} p={0}>
                   <Box p={10}>
-                    <EChartsReact style={{ height: 280, }} option={options} />
+                    <EChartsReact style={{ height: 290, }} option={options} />
                   </Box>
                 </Box>
             </Box>

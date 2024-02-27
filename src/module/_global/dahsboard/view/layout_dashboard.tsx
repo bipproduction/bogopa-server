@@ -34,7 +34,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
               border: "none"
             }}>
               <Group>
-                <Avatar color="cyan" radius="xl" size={'lg'}>MA</Avatar>
+                <Avatar color="pink" radius="xl" size={'lg'}>MA</Avatar>
                 <Burger opened={opened} color="rgba(255, 255, 255, 1)" onClick={toggle} hiddenFrom="sm" size="sm" />
               </Group>
               <Group
@@ -45,7 +45,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                     <Box key={i}>
                       <Tooltip label={v.label}>
                         <ActionIcon
-                          c={v.link === active ? "#6073e3" : Warna.abuAbu}
+                          c={v.link === active ? "#E64980" : Warna.ungu}
                           size={30}
                           variant="subtle"
                           onClick={() => {
@@ -71,7 +71,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                   <ActionIcon onClick={() => {
                     setNavOpt({ width: 250, breakpoint: 'sm', collapsed: { mobile: isOpenNavbar } })
                     setOpenNavbar(false)
-                  }} variant='subtle' c={Warna.abuAbu}>
+                  }} variant='subtle' c={Warna.ungu}>
                     <MdArrowForwardIos size={30} />
                   </ActionIcon>
                 </Group>
@@ -79,7 +79,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                   <ActionIcon variant='subtle'
                   //   onClick={() => setOpenModal(true)}
                   >
-                    <RiLogoutCircleRLine size={30} color={Warna.abuAbu} />
+                    <RiLogoutCircleRLine size={30} color={Warna.ungu} />
                   </ActionIcon>
                 </Group>
               </Group>
@@ -91,9 +91,9 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
             border: "none"
           }} pt={10}>
             <Group pl={15} pb={15} pt={10}>
-              <Avatar color="cyan" radius="xl" size={'lg'}>MA</Avatar>
+              <Avatar color="pink" radius="xl" size={'lg'}>MA</Avatar>
               <Box>
-                <Text fw={"bold"}>Moh Alif</Text>
+                <Text fw={"bold"}>WIBUDEV</Text>
                 <Text>Admin</Text>
               </Box>
             </Group>
@@ -105,18 +105,18 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                     style={{ borderRadius: 10, }}
                     label={active === item.link ? (
                       <Group>
-                        <item.icon size={25} color='#6073e3' />
+                        <item.icon size={25} color='#E64980' />
                         <Box>
-                          <Text onClick={() => router.push(item.link)} c={"#6073e3"}>
+                          <Text onClick={() => router.push(item.link)} c={"#E64980"}>
                             {item.label}
                           </Text>
                         </Box>
                       </Group>
                     ) : (
                       <Group>
-                        <item.icon size={25} color={Warna.abuAbu} />
+                        <item.icon size={25} color={Warna.ungu} />
                         <Box>
-                          <Text onClick={() => router.push(item.link)} c={Warna.abuAbu}>
+                          <Text onClick={() => router.push(item.link)} c={Warna.ungu}>
                             {item.label}
                           </Text>
                         </Box>
@@ -126,7 +126,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                     onClick={() => {
                       router.push(item.link);
                     }}
-                    c={"pink"}
+                    color='pink'
                     variant={active == item.link ? 'light' : 'subtle'}
                   />
                 </Box>
@@ -146,18 +146,18 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                   setOpenNavbar(true)
                 }}
               >
-                <ActionIcon variant='subtle' c={Warna.abuAbu}>
+                <ActionIcon variant='subtle' c={Warna.ungu}>
                   <MdArrowBackIos size={30} />
                 </ActionIcon>
-                <Text c={Warna.abuAbu}>MINIMIZE</Text>
+                <Text c={Warna.ungu}>MINIMIZE</Text>
               </Group>
               <Group justify='center' pl={20}
               //   onClick={() => setOpenModal(true)}
               >
                 <ActionIcon variant='subtle'>
-                  <RiLogoutCircleRLine size={30} color={Warna.abuAbu} />
+                  <RiLogoutCircleRLine size={30} color={Warna.ungu} />
                 </ActionIcon>
-                <Text c={Warna.abuAbu}>LOGOUT</Text>
+                <Text c={Warna.ungu}>LOGOUT</Text>
               </Group>
             </Group>
 
@@ -166,15 +166,15 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
         <AppShell.Main
           bg={Warna.bgDashboard}
         >
-          <Box pt={10} pr={10} pb={10} >
+          <Box pt={20} pr={20} pb={20} >
             <Box style={{
               backgroundColor: "white",
               padding: '15px 30px',
-              borderRadius: 10,
-              // boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
-              border: '2px solid #dddddd'
+              border: `1px solid ${Warna.warnaBorder}`,
+        borderRadius: 10,
+        boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
             }}
-              mih={"97vh"}
+              mih={"95vh"}
             >
               {children}
             </Box>
