@@ -1,6 +1,6 @@
 'use client'
 import { EChartsOption, color } from "echarts";
-// import EChartsReact from "echarts-for-react";
+import EChartsReact from "echarts-for-react";
 import * as echarts from 'echarts';
 import { useState } from "react";
 import { useShallowEffect } from "@mantine/hooks";
@@ -12,7 +12,7 @@ export default function EchartTransaksiPerhari() {
 
     useShallowEffect(() => {
         loadData()
-    })
+    }, [])
 
     const loadData = () => {
         const option: EChartsOption = {
@@ -73,7 +73,7 @@ export default function EchartTransaksiPerhari() {
     return (
         <>
         <Box pt={20}>
-                    {/* <EChartsReact style={{ height: 400, width: "auto" }} option={options} /> */}
+                    <EChartsReact style={{ height: 400, width: "auto" }} option={options} />
             </Box>
 
         </>
