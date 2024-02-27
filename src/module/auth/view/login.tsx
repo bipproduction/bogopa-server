@@ -1,9 +1,10 @@
 "use client"
-import { Box, Button, Flex, Grid, Group, PasswordInput, SimpleGrid, Stack, Text, TextInput } from '@mantine/core';
+import { Avatar, Box, Button, Center, Container, Flex, Grid, Group, Image, PasswordInput, SimpleGrid, Stack, Text, TextInput } from '@mantine/core';
 import { useFocusTrap } from '@mantine/hooks';
 import React from 'react';
 import ViewUser from '../../user/view/view_user';
 import { LuShieldCheck } from 'react-icons/lu'
+import { RiUserHeartLine } from 'react-icons/ri'
 import { useRouter } from 'next/navigation';
 import { Warna } from '@/module/_global';
 
@@ -22,38 +23,51 @@ export default function Login() {
           borderRadius: 10,
           boxShadow: "0px 0px 20px 0px rgba(0,0,0,0.10)",
         }}
-          mih={"90vh"}
+
           w={"80%"}
         >
           <SimpleGrid cols={2} spacing="sm">
-            <div>1</div>
-            <div>
-              <Box>
-                <Text fw={"bold"} fz={30}>EXISTING MEMBER</Text>
-                <Text fz={20}>Welcome Back!</Text>
+            <Box >
+              <Image src={"/web/logo.png"} />
+            </Box>
+            <Box m={50}>
+              <Center>
+                <Avatar color="pink" radius="sm" style={{ borderRadius: 100 }} size={100}>
+                  <RiUserHeartLine size="50" />
+                </Avatar>
+              </Center>
+              <Box pt={15}>
+                <Text ta={"center"} fw={"bold"} c={'pink'} fz={30}>WELCOME BACK!</Text>
+                <Text ta={"center"} fz={20}>SIGN IN</Text>
               </Box>
               <Stack pt={25}>
                 <TextInput
-                  label={<Text fz={14}>Email</Text>}
-                // onChange={(val) => { setEmail(val.target.value) }}
+                  placeholder='Email Address'
+                  // onChange={(val) => { setEmail(val.target.value) }}
+                  radius={'lg'}
                 />
                 <PasswordInput
-                  label={<Text fz={14}>Password</Text>}
+                  placeholder='Password'
+                  radius={'lg'}
                 // onChange={(val) => { setPassword(val.target.value) }}
                 />
                 <Group pt={10} justify='space-between'>
                   <Group>
-                    <LuShieldCheck size={20} color={"white"} />
+                    <LuShieldCheck size={20} color={"#E64980"} />
                     <Text>Secure Access</Text>
                   </Group>
-                  <Text>Secure Access</Text>
+                  <Group>
+                    <LuShieldCheck size={20} color={"#E64980"} />
+                    <Text>Secure Access</Text>
+                  </Group>
                 </Group>
                 <Button
                   mt={10}
                   mb={10}
+                  radius={"lg"}
                   fullWidth
-                  bg={"white"}
-                  c={"#005B41"}
+                  bg={"pink"}
+                  c={"white"}
                   onClick={() => {
                     router.push('/dashboard')
                   }}
@@ -61,7 +75,7 @@ export default function Login() {
                   Login
                 </Button>
               </Stack>
-            </div>
+            </Box>
           </SimpleGrid>
         </Box>
       </Flex>
