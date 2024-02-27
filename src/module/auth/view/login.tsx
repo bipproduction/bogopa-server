@@ -28,7 +28,7 @@ export default function Login() {
         >
           <SimpleGrid cols={2} spacing="sm">
             <Box >
-              <Image src={"/web/logo.png"} />
+              <Image src={"/web/logo.png"} alt='Logo' />
             </Box>
             <Box m={50}>
               <Center>
