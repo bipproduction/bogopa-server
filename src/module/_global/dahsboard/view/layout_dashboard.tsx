@@ -43,7 +43,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                 <Stack align="center" p={"xs"}>
                   {DataNavbarTertutup.map((v, i) => (
                     <Box key={i}>
-                      <Tooltip label={v.label}>
+                      <Tooltip label={v.label} color={v.link === active ? "#E64980" : Warna.ungu  } position="right-start">
                         <ActionIcon
                           c={v.link === active ? "#E64980" : Warna.ungu}
                           size={30}
