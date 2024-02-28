@@ -38,7 +38,7 @@ export default function Login() {
               </Center>
               <Box pt={15}>
                 <Text ta={"center"} fw={"bold"} c={'pink'} fz={30}>WELCOME BACK!</Text>
-                <Text ta={"center"} fz={20}>SIGN IN</Text>
+                <Text ta={"center"} fz={20}>BOGOPA</Text>
               </Box>
               <Stack pt={25}>
                 <TextInput
