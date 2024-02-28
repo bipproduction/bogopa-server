@@ -1,6 +1,6 @@
 'use client'
 import { Warna } from '@/module/_global';
-import { ActionIcon, Box, Button, Center, Group, Pagination, Switch, Table, Text } from '@mantine/core';
+import { ActionIcon, Anchor, Box, Button, Center, Group, Pagination, Switch, Table, Text } from '@mantine/core';
 import React from 'react';
 import { AiOutlineFileSearch } from 'react-icons/ai'
 import { LiaEditSolid } from 'react-icons/lia'
@@ -37,7 +37,7 @@ export default function TableVip() {
               <Table.Tr >
                 <Table.Th>NO</Table.Th>
                 <Table.Th>NAMA</Table.Th>
-                <Table.Th>NON AKTIF</Table.Th>
+                <Table.Th>STATUS</Table.Th>
                 <Table.Th>
                   <Center>
                     ACTION
@@ -49,18 +49,19 @@ export default function TableVip() {
               {User.map((v, i) => (
                 <Table.Tr key={i}>
                   <Table.Td>{i + 1}</Table.Td>
-                  <Table.Td>{v.name}</Table.Td>
+                  <Table.Td >
+                    <Anchor onClick={() => router.push('/vip/detail/' + v.id)}>
+                    {v.name}
+                    </Anchor>
+                  </Table.Td>
                   <Table.Td >
                     <Switch size="lg" onLabel="AKTIF" offLabel="NON AKTIF" />
                   </Table.Td>
                   <Table.Td >
                     <Center>
                       <Group>
-                        <ActionIcon variant="subtle" onClick={() => router.push('/vip/edit/' + v.id)}>
+                        <ActionIcon variant="subtle" onClick={() => router.push('/vip/edit/' + v.id)} >
                           <LiaEditSolid size={30} />
-                        </ActionIcon>
-                        <ActionIcon variant="subtle">
-                          <AiOutlineFileSearch size={30} />
                         </ActionIcon>
                       </Group>
                     </Center>
