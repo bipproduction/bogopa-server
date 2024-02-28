@@ -1,7 +1,7 @@
 "use client"
 import { Warna } from '@/module/_global';
 import ButtonBack from '@/module/_global/components/button_back';
-import { Box, Button, Modal, Stack, Text, TextInput } from '@mantine/core';
+import { Box, Button, Modal, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
 import React from 'react';
 import { DateInput } from '@mantine/dates';
 import { useAtom } from 'jotai';
@@ -28,6 +28,8 @@ export default function ViewAddVip() {
         <Box p={30}>
           <Stack>
             <TextInput placeholder='Create Name' label="Name" />
+            <NumberInput placeholder='Create Harga' label="Harga" />
+            <Textarea placeholder='Create Detail' label="Detail" />
             <Box pt={10}>
               <Button fullWidth onClick={onConfirmation}>Submit</Button>
             </Box>
