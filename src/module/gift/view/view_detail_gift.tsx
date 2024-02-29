@@ -13,13 +13,13 @@ export default function ViewDetailGift({ id }: { id: string }) {
     <>
       <ButtonBack />
       <Box pb={20} pt={20}>
-        <Text fz={30} c={Warna.biruTua}>DETAIL GIFT</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>DETAIL GIFT</Text>
       </Box>
       <Box>
         <Box style={{
           border: `1px solid ${Warna.warnaBorder}`,
           borderRadius: 10,
-          boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
+          boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
         }}>
           <Box p={30}>
             <Avatar style={{ cursor: "pointer" }} src={"https://i.pravatar.cc/200?img=4"} size={70} mr={2} />
