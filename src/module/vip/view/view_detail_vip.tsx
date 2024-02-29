@@ -1,8 +1,12 @@
 'use client'
 import { Warna } from '@/module/_global';
 import ButtonBack from '@/module/_global/components/button_back';
-import { Box, Grid, Group, Image, SimpleGrid, Stack, Text } from '@mantine/core';
+import { Box, Grid, Group, Image, List, SimpleGrid, Stack, Text, ThemeIcon } from '@mantine/core';
 import React from 'react';
+import { FaUserTag } from "react-icons/fa";
+import { TbReportMoney } from "react-icons/tb";
+import { MdOutlineAccessTimeFilled } from "react-icons/md";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 export default function ViewDetailVip({ id }: { id: string }) {
 
@@ -17,37 +21,82 @@ export default function ViewDetailVip({ id }: { id: string }) {
         borderRadius: 10,
         boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
       }}>
-        <Box p={50}>
-          <SimpleGrid
-          cols={{ base: 1, sm: 2, lg: 2 }}
-          spacing={{ base: 10, sm: 'xl' }}
-          verticalSpacing={{ base: 'md', sm: 'xl' }}
-          >
-            <Box>
-              <Box pb={20}>
-                <Text fz={20} c={Warna.ungu}>NAME :</Text>
-                <Text fz={20} c={Warna.biruTua}>- Gold</Text>
+        <Box p={20}>
+          <Grid>
+            <Grid.Col span={3}>
+              <Box>
+                <Box style={{
+                  backgroundColor: '#E5E9F1',
+                  padding: 10,
+                  borderRadius: 10,
+                }}>
+                  <Text c={"grey"} pl={10} >Total Terbeli</Text>
+                  <Group gap={8} pt={20} pb={20} justify='center'>
+                    <FaUserTag size={25} color={Warna.pink} />
+                    <Text c={"pink"} pt={5}>429 PEMBELI</Text>
+                  </Group>
+                </Box>
               </Box>
-              <Box pb={20}>
-                <Text fz={20} c={Warna.ungu}>LIST FITUR :</Text>
-                <Text fz={20} c={Warna.biruTua}>- Lihat Siapa Suka Saya</Text>
+            </Grid.Col>
+            <Grid.Col span={3}>
+              <Box>
+                <Box style={{
+                  backgroundColor: '#E5E9F1',
+                  padding: 10,
+                  borderRadius: 10,
+                }}>
+                  <Text c={"grey"} pl={10} >Harga</Text>
+                  <Group gap={8} pt={20} pb={20} justify='center'>
+                    <TbReportMoney size={25} color={Warna.pink} />
+                    <Text c={"pink"} pt={5}>Rp.344.000</Text>
+                  </Group>
+                </Box>
               </Box>
-              <Box pb={20}>
-                <Text fz={20} c={Warna.ungu}>HARGA :</Text>
-                <Text fz={20} c={Warna.biruTua}>- Rp. 150.000-,</Text>
+            </Grid.Col>
+            <Grid.Col span={3}>
+              <Box>
+                <Box style={{
+                  backgroundColor: '#E5E9F1',
+                  padding: 10,
+                  borderRadius: 10,
+                }}>
+                  <Text c={"grey"} pl={10} >Time Update</Text>
+                  <Group gap={8} pt={20} pb={20} justify='center'>
+                    <MdOutlineAccessTimeFilled size={25} color={Warna.pink} />
+                    <Text c={"pink"} pt={5}>3 BULAN</Text>
+                  </Group>
+                </Box>
               </Box>
-              <Box pb={20}>
-                <Text fz={20} c={Warna.ungu}>TIME UPDATE TERAKHIR :</Text>
-                <Text fz={20} c={Warna.biruTua}>- 29, Februari 2024</Text>
-              </Box>
-              <Box >
-                <Text fz={20} c={Warna.ungu}>JUMLAH TERBELI :</Text>
-                <Text fz={20} c={Warna.biruTua}>- 356 Gold</Text>
+            </Grid.Col>
+          </Grid>
+          <Box pt={20}>
+            <Box style={{
+              border: `1px solid ${Warna.warnaBorder}`,
+              borderRadius: 10,
+              boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
+            }}>
+              <Box p={20}>
+                <Box pb={10}>
+                  <Text fz={20} c={Warna.biruTua}>LIST FITUR</Text>
+                </Box>
+                <List
+                  spacing="xs"
+                  size="sm"
+                  center
+                  icon={
+                    <ThemeIcon color="pink" size={24} radius="xl">
+                      <FaRegCheckCircle style={{ width: 25, height: 25 }} />
+                    </ThemeIcon>
+                  }
+                >
+                  <List.Item>Clone or download repository from GitHub</List.Item>
+                  <List.Item>Install dependencies with yarn</List.Item>
+                  <List.Item>To start development server run npm start command</List.Item>
+                  <List.Item>Run tests to make sure your changes do not break the build</List.Item>
+                </List>
               </Box>
             </Box>
-            <Image alt='logo' src={'/web/logo.png'} h={400}
-      w="auto"/>
-          </SimpleGrid>
+          </Box>
         </Box>
       </Box>
     </>
