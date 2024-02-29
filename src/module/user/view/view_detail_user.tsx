@@ -20,9 +20,13 @@ export default function ViewDetailUser({ id }: { id: string }) {
           boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
         }}>
           <Box p={30}>
-            <Avatar style={{ cursor: "pointer" }} src={"https://i.pravatar.cc/200?img=4"} size={70} mr={2} />
-            <Text pt={10} fz={20}>Doni Setiawan</Text>
-            <Text fz={14} c={"gray"}>Software Developer</Text>
+            <Group>
+              <Avatar style={{ cursor: "pointer" }} src={"https://i.pravatar.cc/200?img=4"} size={70} mr={2} />
+              <Box>
+                <Text fz={20}>Doni Setiawan</Text>
+                <Text fz={14} c={"gray"}>Software Developer</Text>
+              </Box>
+            </Group>
             <Box pt={30} pb={30}>
               <Divider />
             </Box>
@@ -60,11 +64,16 @@ export default function ViewDetailUser({ id }: { id: string }) {
                 <Text >:  12 Desember 1999</Text>
               </Grid.Col>
             </Grid>
-            <Box pt={30} pb={30}>
-              <Divider />
-            </Box>
-            <TabUser/>
           </Box>
+        </Box>
+      </Box>
+      <Box style={{
+        border: `1px solid ${Warna.warnaBorder}`,
+        borderRadius: 10,
+        boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
+      }} mt={20}>
+        <Box p={30}>
+          <TabUser />
         </Box>
       </Box>
     </>

@@ -10,40 +10,40 @@ export default function TabUser() {
   const iconStyle = { width: rem(20), height: rem(20) };
 
   return (
-    <Tabs variant="pills" color={Warna.pink} radius="xl" defaultValue="Dating">
+    <Tabs variant="default" color={Warna.pink} defaultValue="Dating">
       <Tabs.List>
-        <Tabs.Tab value="Dating" leftSection={<FaGrinHearts style={iconStyle} />} w={300}>
+        <Tabs.Tab value="Dating" leftSection={<FaGrinHearts style={iconStyle} color={Warna.pink} />} w={"50%"}>
           Dating
         </Tabs.Tab>
-        <Tabs.Tab value="Transaksi" leftSection={<FaMoneyBillTransfer style={iconStyle} />} w={300}>
+        <Tabs.Tab value="Transaksi" leftSection={<FaMoneyBillTransfer style={iconStyle} color={Warna.pink}/>} w={"50%"}>
           Transaksi
         </Tabs.Tab>
       </Tabs.List>
 
       <Tabs.Panel value="Dating">
         <Box pt={20}>
-          <Box style={{
+          {/* <Box style={{
             border: `1px solid ${Warna.warnaBorder}`,
             borderRadius: 10,
             boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
-          }}>
-            <Box p={20}>
+          }}> */}
+            {/* <Box p={20}> */}
               <Dating />
-            </Box>
-          </Box>
+            {/* </Box> */}
+          {/* </Box> */}
         </Box>
       </Tabs.Panel>
       <Tabs.Panel value="Transaksi">
         <Box pt={20}>
-          <Box style={{
+          {/* <Box style={{
             border: `1px solid ${Warna.warnaBorder}`,
             borderRadius: 10,
             boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
-          }}>
-            <Box p={20}>
+          }}> */}
+            {/* <Box p={20}> */}
               <Transaksi/>
-            </Box>
-          </Box>
+            {/* </Box> */}
+          {/* </Box> */}
         </Box>
       </Tabs.Panel>
     </Tabs>
