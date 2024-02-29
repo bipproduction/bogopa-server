@@ -18,7 +18,7 @@ export default function EchartTransaksiPerhari() {
     const loadData = () => {
         const option: EChartsOption = {
             title: {
-              text: 'Transaksi Perhari',
+              text: 'TRANSAKSI PERHARI',
               textStyle: {
                 fontSize: 20,
                 color: Warna.biruTua

@@ -18,7 +18,7 @@ export default function EchartLive() {
     const loadData = () => {
         const option: EChartsOption = {
             title: {
-              text: 'Total Live',
+              text: 'TOTAL LIVE',
               textStyle: {
                 fontSize: 20,
                 color: Warna.biruTua

@@ -11,7 +11,7 @@ export default function TotalUserBaru() {
         boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
       }} >
         <Box p={15} h={310}>
-          <Text ml={5} c={Warna.biruTua} fz={20} fw={"bold"}>Total User Baru</Text>
+          <Text ml={5} c={Warna.biruTua} fz={20} fw={"bold"}>TOTAL USER BARU</Text>
           <Flex
             mih={50}
             gap="md"
