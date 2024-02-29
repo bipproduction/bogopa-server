@@ -9,7 +9,7 @@ export default function ViewGift() {
     <>
     <Group justify='space-between'>
     <Box>
-      <Text fz={30} c={Warna.biruTua}>USER</Text>
+      <Text fz={30} c={Warna.biruTua}>GIFT</Text>
     </Box>
         <Button  radius={"md"} leftSection={<FiFolderPlus/>}>Create</Button>
       </Group>

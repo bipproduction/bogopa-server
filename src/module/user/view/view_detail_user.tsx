@@ -27,8 +27,8 @@ export default function ViewDetailUser({ id }: { id: string }) {
             <Grid pb={20}>
               <Grid.Col span={3}>
                 <Group gap={8} >
-                  <MdOutlineMailOutline size={25} color='gray' />
-                  <Text c={"gray"}>Email</Text>
+                  <MdOutlineMailOutline size={25} color={Warna.pink} />
+                  <Text c={"pink"}>Email</Text>
                 </Group>
               </Grid.Col>
               <Grid.Col span={9}>
@@ -38,8 +38,8 @@ export default function ViewDetailUser({ id }: { id: string }) {
             <Grid pb={20}>
               <Grid.Col span={3}>
                 <Group gap={8} >
-                  <MdOutlinePhoneIphone size={25} color='gray' />
-                  <Text c={"gray"}>Phone</Text>
+                  <MdOutlinePhoneIphone size={25} color={Warna.pink} />
+                  <Text c={"pink"}>Phone</Text>
                 </Group>
               </Grid.Col>
               <Grid.Col span={9}>
@@ -49,10 +49,10 @@ export default function ViewDetailUser({ id }: { id: string }) {
             <Grid>
               <Grid.Col span={3}>
                 <Group gap={8} >
-                  <LiaBirthdayCakeSolid size={25} color='gray' />
-                  <Text c={"gray"}>Birth</Text>
+                  <LiaBirthdayCakeSolid size={25} color={Warna.pink} />
+                  <Text c={"pink"}>Birth</Text>
                 </Group>
-                <Text c={"gray"}></Text>
+                <Text c={"pink"}></Text>
               </Grid.Col>
               <Grid.Col span={9}>
                 <Text >:  12 Desember 1999</Text>

@@ -58,7 +58,7 @@ export default function TableUser() {
                 <Table.Tr key={i}>
                   <Table.Td>
                     <Group>
-                      <Avatar style={{ cursor: "pointer" }} src={v.image} size='lg' mr={2} onClick={() => router.push('/user/detail/' + v.id)} />
+                      <Avatar style={{ cursor: "pointer" }} src={v.image} size='lg' mr={2} onClick={() => router.push('/user/' + v.id)} />
                       <Box>
                         <Text fw={"bold"}>{v.name}</Text>
                         <Text c={"gray"} fz={14}>{v.tgl}</Text>

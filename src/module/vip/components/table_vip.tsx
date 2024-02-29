@@ -50,7 +50,7 @@ export default function TableVip() {
                 <Table.Tr key={i}>
                   <Table.Td>{i + 1}</Table.Td>
                   <Table.Td >
-                    <Anchor onClick={() => router.push('/vip/detail/' + v.id)}>
+                    <Anchor onClick={() => router.push('/vip/' + v.id)}>
                     {v.name}
                     </Anchor>
                   </Table.Td>

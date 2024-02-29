@@ -5,11 +5,13 @@ import React from 'react';
 import {AiOutlineFileSearch} from 'react-icons/ai'
 import {LiaEditSolid} from 'react-icons/lia'
 import {FiFolderPlus} from 'react-icons/fi'
+import { useRouter } from 'next/navigation';
 
 export default function TableAdmin() {
   const User = [
     {
       id: 1,
+      role: 'User',
       name: 'Doni',
       phone: '08762980230820',
       email: 'inisial@gmail.com',
@@ -17,6 +19,7 @@ export default function TableAdmin() {
     },
     {
       id: 2,
+      role: 'User',
       name: 'Roni',
       phone: '08762923232',
       email: 'inisial@gmail.com',
@@ -24,6 +27,7 @@ export default function TableAdmin() {
     },
     {
       id: 3,
+      role: 'User',
       name: 'Risma',
       phone: '0871712871872',
       email: 'inisial@gmail.com',
@@ -31,6 +35,7 @@ export default function TableAdmin() {
     },
     {
       id: 4,
+      role: 'User',
       name: 'Desi',
       phone: '08189189211',
       email: 'inisial@gmail.com',
@@ -38,6 +43,7 @@ export default function TableAdmin() {
     },
     {
       id: 6,
+      role: 'User',
       name: 'Angga',
       phone: '08128289289',
       email: 'inisial@gmail.com',
@@ -45,6 +51,7 @@ export default function TableAdmin() {
     },
     {
       id: 7,
+      role: 'User',
       name: 'Dwi',
       phone: '08272973929',
       email: 'inisial@gmail.com',
@@ -52,6 +59,7 @@ export default function TableAdmin() {
     },
     {
       id: 5,
+      role: 'User',
       name: 'Lisa',
       phone: '081112612672',
       email: 'inisial@gmail.com',
@@ -59,6 +67,7 @@ export default function TableAdmin() {
     },
     {
       id: 8,
+      role: 'User',
       name: 'Dona',
       phone: '081112612672',
       email: 'inisial@gmail.com',
@@ -66,6 +75,7 @@ export default function TableAdmin() {
     },
     {
       id: 9,
+      role: 'User',
       name: 'Ahmad',
       phone: '081112612672',
       email: 'inisial@gmail.com',
@@ -73,12 +83,16 @@ export default function TableAdmin() {
     },
     {
       id: 10,
+      role: 'User',
       name: 'Dono',
       phone: '081112612672',
       email: 'inisial@gmail.com',
       jenisKelamin: "Laki-Laki"
     },
   ]
+
+  const router = useRouter()
+
   return (
     <>
 
@@ -93,10 +107,11 @@ export default function TableAdmin() {
               <Table.Tr >
                 <Table.Th>NO</Table.Th>
                 <Table.Th>NAMA</Table.Th>
+                <Table.Th>ROLE</Table.Th>
                 <Table.Th>PHONE</Table.Th>
                 <Table.Th>JENIS KELAMIN</Table.Th>
                 <Table.Th>EMAIL</Table.Th>
-                <Table.Th>NON AKTIF</Table.Th>
+                <Table.Th>STATUS</Table.Th>
                 <Table.Th>
                   <Center>
                   ACTION
@@ -109,6 +124,7 @@ export default function TableAdmin() {
                 <Table.Tr key={i}>
                   <Table.Td>{i + 1}</Table.Td>
                   <Table.Td>{v.name}</Table.Td>
+                  <Table.Td>{v.role}</Table.Td>
                   <Table.Td >{v.phone}</Table.Td>
                   <Table.Td >{v.jenisKelamin}</Table.Td>
                   <Table.Td >{v.email}</Table.Td>
@@ -118,11 +134,8 @@ export default function TableAdmin() {
                   <Table.Td >
                     <Center>
                     <Group>
-                      <ActionIcon variant="subtle">
+                      <ActionIcon variant="subtle" onClick={() => router.push('/admin/edit/' + v.id)}>
                       <LiaEditSolid size={30}/>
-                      </ActionIcon>
-                      <ActionIcon variant="subtle">
-                      <AiOutlineFileSearch size={30}/>
                       </ActionIcon>
                     </Group>
                     </Center>
