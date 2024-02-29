@@ -21,8 +21,7 @@ export default function EchartTotalUser() {
           text: 'Total User',
           textStyle: {
             fontSize: 20,
-            fontWeight: 'bold',
-            color: Warna.ungu
+            color: Warna.biruTua
           }
         },
         grid: {
@@ -88,7 +87,7 @@ export default function EchartTotalUser() {
                 <Box style={{
                     border: `1px solid ${Warna.warnaBorder}`,
                     borderRadius: 10,
-                    boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
+                    boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
                 }} p={0}>
                   <Box p={10}>
                     <EChartsReact style={{ height: 280, }} option={options} />

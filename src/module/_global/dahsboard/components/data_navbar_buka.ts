@@ -8,8 +8,8 @@ import { FaHouseUser } from "react-icons/fa6";
 export const DataNavbarBuka = [
     {
         key: 8,
-        label: "Dashboard",
-        link: "/dashboard",
+        label: "Home",
+        link: "/home",
         icon: HiViewGrid,
      },
     {

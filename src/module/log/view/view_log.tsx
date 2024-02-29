@@ -1,21 +1,26 @@
 'use client'
-import { Box, Button, Grid, Select } from '@mantine/core';
+import { Box, Button, Grid, Select, Text } from '@mantine/core';
 import { DateInput } from '@mantine/dates';
 import React from 'react';
+import TableLog from '../component/table_log';
+import { Warna } from '@/module/_global';
 
 export default function ViewLog() {
   return (
     <>
       <Box>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>LOG ADMIN</Text>
+      </Box>
+      <Box pt={15}>
         <Grid>
           <Grid.Col span={3}>
             <DateInput
               mt={5}
               placeholder="Tanggal Awal"
               radius={"md"}
-              // onChange={(val) => {
-              //   setDateFrom(val)
-              // }}
+            // onChange={(val) => {
+            //   setDateFrom(val)
+            // }}
             />
           </Grid.Col>
           <Grid.Col span={3}>
@@ -23,9 +28,9 @@ export default function ViewLog() {
               mt={5}
               placeholder="Tanggal Akhir"
               radius={"md"}
-              // onChange={(val) => {
-              //   setDateTo(val)
-              // }}
+            // onChange={(val) => {
+            //   setDateTo(val)
+            // }}
             />
           </Grid.Col>
           <Grid.Col span={4}>
@@ -58,6 +63,9 @@ export default function ViewLog() {
             </Box>
           </Grid.Col>
         </Grid>
+      </Box>
+      <Box pt={20}>
+        <TableLog />
       </Box>
     </>
   );

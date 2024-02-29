@@ -3,7 +3,7 @@ export const Warna = {
     bgNavbarKecil: '#E5E9F1',
     bgNavbarBesar: '#E5E9F1',
     abuAbu: '#797d92',
-    biruTua: '#2f3656',
+    biruTua: '#293b8f',
     warnaBorder: '#dddddd',
     ungu: '#6073e3',
     biruChart: '#228be6'

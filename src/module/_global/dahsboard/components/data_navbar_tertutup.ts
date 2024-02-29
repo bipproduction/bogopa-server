@@ -8,8 +8,8 @@ import { FaHouseUser } from "react-icons/fa6";
 export const DataNavbarTertutup = [
     {
         key: 8,
-        label: "DASHBOARD",
-        link: "/dashboard",
+        label: "Home",
+        link: "/home",
         icon: HiViewGrid,
      },
     {
