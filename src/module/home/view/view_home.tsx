@@ -6,11 +6,11 @@ import EchartLive from '../components/echart_live';
 import TotalUserBaru from '../components/total_user_baru';
 import { Warna } from '@/module/_global';
 
-export default function ViewDashboard() {
+export default function ViewHome() {
   return (
     <>
     <Box>
-      <Text fz={30} c={Warna.biruTua}>DASHBOARD</Text>
+      <Text fz={25} c={Warna.biruTua} fw={'bold'}>HOME</Text>
     </Box>
     <SimpleGrid
      cols={{ base: 1, sm: 2, lg: 2 }}
