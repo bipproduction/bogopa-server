@@ -1,6 +1,5 @@
 'use client'
-import { Warna } from '@/module/_global';
-import ButtonBack from '@/module/_global/components/button_back';
+import { ButtonBack, Warna } from '@/module/_global';
 import { Avatar, Box, Divider, Grid, Group, Text } from '@mantine/core';
 import React from 'react';
 import { MdOutlineAccessTimeFilled, MdOutlineMailOutline, MdOutlinePhoneIphone } from "react-icons/md";

@@ -1,9 +1,7 @@
 "use client"
-import { Warna } from '@/module/_global';
-import ButtonBack from '@/module/_global/components/button_back';
+import { ButtonBack, Warna } from '@/module/_global';
 import { Box, Button, Modal, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
 import React from 'react';
-import { DateInput } from '@mantine/dates';
 import { useAtom } from 'jotai';
 import { isModalVip } from '../val/isModalVip';
 import ModalAddVip from '../components/modal_add_vip';

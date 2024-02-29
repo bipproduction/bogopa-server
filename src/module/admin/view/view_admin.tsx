@@ -12,7 +12,7 @@ export default function ViewAdmin() {
     <>
       <Group justify='space-between'>
         <Box>
-          <Text fz={30} c={Warna.biruTua}>ADMIN</Text>
+          <Text fz={25} c={Warna.biruTua} fw={'bold'}>ADMIN</Text>
         </Box>
         <Button radius={"md"} leftSection={<FiFolderPlus />} onClick={() => router.push("/admin/add")} >Create</Button>
       </Group>

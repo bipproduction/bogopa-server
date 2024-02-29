@@ -1,6 +1,5 @@
 'use client'
-import { Warna } from "@/module/_global"
-import ButtonBack from "@/module/_global/components/button_back"
+import { ButtonBack, Warna } from "@/module/_global"
 import { Box, Text } from "@mantine/core"
 
 export default function ViewDetailTransaksi() {

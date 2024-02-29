@@ -1,6 +1,5 @@
 "use client"
-import { Warna } from '@/module/_global';
-import ButtonBack from '@/module/_global/components/button_back';
+import { ButtonBack, Warna } from '@/module/_global';
 import { Box, Button, Modal, NumberInput, Select, Stack, Text, TextInput, Textarea } from '@mantine/core';
 import React from 'react';
 import { DateInput } from '@mantine/dates';
@@ -18,12 +17,12 @@ export default function ViewAddAdmin() {
     <>
       <ButtonBack />
       <Box pb={20} pt={20}>
-        <Text fz={30} c={Warna.biruTua}>CREATE ADMIN</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>CREATE ADMIN</Text>
       </Box>
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,
         borderRadius: 10,
-        boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
+        boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
       }}>
         <Box p={30}>
           <Stack>
@@ -45,7 +44,7 @@ export default function ViewAddAdmin() {
         withCloseButton={false}
         closeOnClickOutside={false}
       >
-        <ModalAddAdmin />
+        <ModalAddAdmin/>
       </Modal>
     </>
   );

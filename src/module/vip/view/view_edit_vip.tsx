@@ -2,9 +2,8 @@
 import { useAtom } from 'jotai';
 import React from 'react';
 import { isModalVip } from '../val/isModalVip';
-import ButtonBack from '@/module/_global/components/button_back';
 import { Box, Button, Modal, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
-import { Warna } from '@/module/_global';
+import { ButtonBack, Warna } from '@/module/_global';
 import ModalEditVip from '../components/modal_edit_vip';
 
 export default function ViewEditVip({id}: {id: string}) {
