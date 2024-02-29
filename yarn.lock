@@ -227,14 +227,6 @@
   resolved "https://registry.npmjs.org/@mantine/modals/-/modals-7.5.3.tgz"
   integrity sha512-SuPvv14nZmyBcNINqr9y2TLv9xIWXrRYeG8k7QCHM3mo2exW2IHP66Zx93AEpuKbgoDc78fcJcrTqv9C7dxUWQ==
 
-"@mantine/notifications@^7.5.3":
-  version "7.5.3"
-  resolved "https://registry.npmjs.org/@mantine/notifications/-/notifications-7.5.3.tgz"
-  integrity sha512-08mWoGBfc8sGDTRthBg/HYPD8dRHyugZpeUH1U7RjWQmYD4ktdkT8bdBocStTSJkCQIvtP7OPJ1MiKln1idt5w==
-  dependencies:
-    "@mantine/store" "7.5.3"
-    react-transition-group "4.4.5"
-
 "@mantine/nprogress@^7.5.3":
   version "7.5.3"
   resolved "https://registry.npmjs.org/@mantine/nprogress/-/nprogress-7.5.3.tgz"
@@ -2789,7 +2781,7 @@ react-textarea-autosize@8.5.3:
     use-composed-ref "^1.3.0"
     use-latest "^1.2.1"
 
-react-transition-group@4.4.5, react-transition-group@^4.4.5:
+react-transition-group@^4.4.5:
   version "4.4.5"
   resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz"
   integrity sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==
