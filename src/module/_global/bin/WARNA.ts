@@ -6,5 +6,6 @@ export const Warna = {
     biruTua: '#2f3656',
     warnaBorder: '#dddddd',
     ungu: '#6073e3',
-    biruChart: '#228be6'
+    biruChart: '#228be6',
+    pink: '#E64980'
 }
