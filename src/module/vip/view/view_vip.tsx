@@ -11,10 +11,10 @@ export default function ViewVip() {
   return (
     <>
       <Group justify='space-between'>
-      <Box>
-        <Text fz={30} c={Warna.biruTua}>VIP</Text>
-      </Box>
-        <Button  radius={"md"} leftSection={<FiFolderPlus/>} onClick={() => router.push('/vip/add')}>Create</Button>
+        <Box>
+          <Text fz={25} c={Warna.biruTua} fw={'bold'}>VIP</Text>
+        </Box>
+        <Button radius={"md"} leftSection={<FiFolderPlus />} onClick={() => router.push('/vip/add')}>Create</Button>
       </Group>
       <Box pt={20}>
         <TableVip />

@@ -46,7 +46,7 @@ export default function TableGift() {
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,
         borderRadius: 10,
-        boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
+        boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
       }}>
         <Box p={20}>
           <Table  >

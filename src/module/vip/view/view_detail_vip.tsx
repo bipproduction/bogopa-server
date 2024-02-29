@@ -14,7 +14,7 @@ export default function ViewDetailVip({ id }: { id: string }) {
     <>
       <ButtonBack />
       <Box pb={20} pt={20}>
-        <Text fz={30} c={Warna.biruTua}>DETAIL VIP</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>DETAIL VIP</Text>
       </Box>
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,

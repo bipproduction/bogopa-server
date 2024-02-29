@@ -43,7 +43,7 @@ export default function TableUser() {
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,
         borderRadius: 10,
-        boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
+        boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
       }}>
         <Box p={20}>
           <Table  >
@@ -57,8 +57,8 @@ export default function TableUser() {
               {User.map((v, i) => (
                 <Table.Tr key={i}>
                   <Table.Td>
-                    <Group>
-                      <Avatar style={{ cursor: "pointer" }} src={v.image} size='lg' mr={2} onClick={() => router.push('/user/' + v.id)} />
+                    <Group style={{ cursor: "pointer" }} onClick={() => router.push('/user/' + v.id)}>
+                      <Avatar  src={v.image} size='lg' mr={2} />
                       <Box>
                         <Text fw={"bold"}>{v.name}</Text>
                         <Text c={"gray"} fz={14}>{v.tgl}</Text>

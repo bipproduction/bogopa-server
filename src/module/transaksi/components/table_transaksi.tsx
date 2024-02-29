@@ -1,6 +1,7 @@
 'use client'
 import { Warna } from '@/module/_global';
 import { ActionIcon, Box, Button, Center, Group, Pagination, Table, Text } from '@mantine/core';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { AiOutlineFileSearch } from 'react-icons/ai';
 
@@ -67,15 +68,18 @@ export default function TableTransaksi() {
       price: '120.000'
     },
   ]
+
+  const router = useRouter()
+
   return (
     <>
-    <Box style={{
+      <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,
         borderRadius: 10,
         boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
       }}>
         <Box p={20}>
-        <Table  >
+          <Table  >
             <Table.Thead >
               <Table.Tr >
                 <Table.Th>NO</Table.Th>
@@ -84,7 +88,7 @@ export default function TableTransaksi() {
                 <Table.Th>STATUS</Table.Th>
                 <Table.Th>
                   <Center>
-                  ACTION
+                    ACTION
                   </Center>
                 </Table.Th>
               </Table.Tr>
@@ -98,8 +102,8 @@ export default function TableTransaksi() {
                   <Table.Td >{v.status}</Table.Td>
                   <Table.Td >
                     <Center>
-                    <ActionIcon variant="subtle">
-                      <AiOutlineFileSearch size={30}/>
+                      <ActionIcon variant="subtle" onClick={() => router.push(`/transaksi/${v.id}`)}>
+                        <AiOutlineFileSearch size={30} />
                       </ActionIcon>
                     </Center>
                   </Table.Td>
@@ -109,9 +113,9 @@ export default function TableTransaksi() {
           </Table>
         </Box>
       </Box>
-        <Group justify='flex-end' pt={20}>
+      <Group justify='flex-end' pt={20}>
         <Pagination total={10} />
-        </Group>
+      </Group>
     </>
   );
 }

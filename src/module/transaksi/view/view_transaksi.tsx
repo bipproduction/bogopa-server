@@ -8,7 +8,7 @@ export default function ViewTransaksi() {
   return (
     <>
     <Box>
-      <Text fz={30} c={Warna.biruTua}>TRANSAKSI</Text>
+      <Text fz={25} fw={'bold'} c={Warna.biruTua}>TRANSAKSI</Text>
     </Box>
     <Box pt={20}>
       <TableTransaksi />

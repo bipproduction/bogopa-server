@@ -9,7 +9,7 @@ export default function ViewUser() {
   return (
     <>
       <Box>
-        <Text fz={30} c={Warna.biruTua}>USER</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>USER</Text>
       </Box>
       <Box pt={20}>
         <TableUser />
