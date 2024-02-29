@@ -59,28 +59,31 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
 
                 </Stack>
               </Group>
-              <Group
-                style={{
-                  position: "absolute",
-                  bottom: 30,
-                }}
-                pl={10}
+              <Group style={{
+                position: "absolute",
+                bottom: 30,
+              }}
               >
-                <Group pb={9}>
-                  <ActionIcon onClick={() => {
-                    setNavOpt({ width: 250, breakpoint: 'sm', collapsed: { mobile: isOpenNavbar } })
-                    setOpenNavbar(false)
-                  }} variant='subtle' c={Warna.ungu}>
-                    <MdArrowForwardIos size={30} />
-                  </ActionIcon>
-                </Group>
-                <Group justify='center' >
-                  <ActionIcon variant='subtle'
-                  //   onClick={() => setOpenModal(true)}
-                  >
-                    <RiLogoutCircleRLine size={30} color={Warna.ungu} />
-                  </ActionIcon>
-                </Group>
+                <Box>
+                  <Divider my={'md'} size={'xs'} mr={15} color={Warna.warnaBorder} />
+                  <Group pl={15} >
+                    <Group pb={9}>
+                      <ActionIcon onClick={() => {
+                        setNavOpt({ width: 250, breakpoint: 'sm', collapsed: { mobile: isOpenNavbar } })
+                        setOpenNavbar(false)
+                      }} variant='subtle' c={Warna.ungu}>
+                        <MdArrowForwardIos size={30} />
+                      </ActionIcon>
+                    </Group>
+                    <Group justify='center' >
+                      <ActionIcon variant='subtle'
+                      //   onClick={() => setOpenModal(true)}
+                      >
+                        <RiLogoutCircleRLine size={30} color={Warna.ungu} />
+                      </ActionIcon>
+                    </Group>
+                  </Group>
+                </Box>
               </Group>
             </AppShellNavbar>
           )
@@ -132,34 +135,46 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                 </Box>
               )
             })}
-            <Group
-              style={{
+            {/* style={{
                 position: "absolute",
                 bottom: 30,
                 cursor: 'pointer',
-              }}
-            >
-              <Group justify='center' pl={20} pb={10}
-                //   onClick={() => setOpenModal(true)}
-                onClick={() => {
-                  setNavOpt({ width: 100, breakpoint: 'sm', collapsed: { mobile: isOpenNavbar } })
-                  setOpenNavbar(true)
-                }}
-              >
-                <ActionIcon variant='subtle' c={Warna.ungu}>
-                  <MdArrowBackIos size={30} />
-                </ActionIcon>
-                <Text c={Warna.ungu}>MINIMIZE</Text>
-              </Group>
-              <Group justify='center' pl={20}
-              //   onClick={() => setOpenModal(true)}
-              >
-                <ActionIcon variant='subtle'>
-                  <RiLogoutCircleRLine size={30} color={Warna.ungu} />
-                </ActionIcon>
-                <Text c={Warna.ungu}>LOGOUT</Text>
-              </Group>
+              }} */}
+
+            <Group style={{
+              position: "absolute",
+              bottom: 30,
+              cursor: 'pointer',
+            }} >
+              <Box>
+                <Box>
+                  <Divider my={'md'} mx={'md'} size={'xs'} color={Warna.warnaBorder} />
+                </Box>
+                <Group>
+                  <Group justify='center' pl={20} pb={10}
+                    //   onClick={() => setOpenModal(true)}
+                    onClick={() => {
+                      setNavOpt({ width: 100, breakpoint: 'sm', collapsed: { mobile: isOpenNavbar } })
+                      setOpenNavbar(true)
+                    }}
+                  >
+                    <ActionIcon variant='subtle' c={Warna.ungu}>
+                      <MdArrowBackIos size={30} />
+                    </ActionIcon>
+                    <Text c={Warna.ungu}>MINIMIZE</Text>
+                  </Group>
+                  <Group justify='center' pl={20}
+                  //   onClick={() => setOpenModal(true)}
+                  >
+                    <ActionIcon variant='subtle'>
+                      <RiLogoutCircleRLine size={30} color={Warna.ungu} />
+                    </ActionIcon>
+                    <Text c={Warna.ungu}>LOGOUT</Text>
+                  </Group>
+                </Group>
+              </Box>
             </Group>
+
 
           </AppShellNavbar>
         }
