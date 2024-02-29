@@ -1,6 +1,5 @@
 'use client'
-import { Warna } from '@/module/_global';
-import ButtonBack from '@/module/_global/components/button_back';
+import { ButtonBack, Warna } from '@/module/_global';
 import { Box, Grid, Group, Image, List, SimpleGrid, Stack, Text, ThemeIcon } from '@mantine/core';
 import React from 'react';
 import { FaUserTag } from "react-icons/fa";

@@ -1,6 +1,5 @@
 "use client"
-import { Warna } from '@/module/_global';
-import ButtonBack from '@/module/_global/components/button_back';
+import { ButtonBack, Warna } from '@/module/_global';
 import { Box, Button, Modal, NumberInput, Select, Stack, Text, TextInput, Textarea } from '@mantine/core';
 import React from 'react';
 import { DateInput } from '@mantine/dates';

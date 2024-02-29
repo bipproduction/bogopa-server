@@ -37,13 +37,12 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                 <Avatar color="pink" radius="xl" size={'lg'}>MA</Avatar>
                 <Burger opened={opened} color="rgba(255, 255, 255, 1)" onClick={toggle} hiddenFrom="sm" size="sm" />
               </Group>
-              <Group
-                pt={30}
-              >
+              <Divider my={'md'} size={'xs'} mr={15} color={Warna.warnaBorder} />
+              <Group>
                 <Stack align="center" p={"xs"}>
                   {DataNavbarTertutup.map((v, i) => (
                     <Box key={i}>
-                      <Tooltip label={v.label} color={v.link === active ? "#E64980" : Warna.ungu  } position="right-start">
+                      <Tooltip label={v.label} color={v.link === active ? "#E64980" : Warna.ungu} position="right-start">
                         <ActionIcon
                           c={v.link === active ? "#E64980" : Warna.ungu}
                           size={30}
@@ -67,7 +66,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                 }}
                 pl={10}
               >
-                <Group pb={40}>
+                <Group pb={9}>
                   <ActionIcon onClick={() => {
                     setNavOpt({ width: 250, breakpoint: 'sm', collapsed: { mobile: isOpenNavbar } })
                     setOpenNavbar(false)
@@ -90,13 +89,14 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
           <AppShellNavbar bg={Warna.bgNavbarBesar} style={{
             border: "none"
           }} pt={10}>
-            <Group pl={15} pb={15} pt={10}>
+            <Group pl={15} pt={10}>
               <Avatar color="pink" radius="xl" size={'lg'}>MA</Avatar>
               <Box>
                 <Text fw={"bold"}>WIBUDEV</Text>
                 <Text>Admin</Text>
               </Box>
             </Group>
+            <Divider my={'md'} mx={'md'} size={'xs'} color={Warna.warnaBorder} />
             {DataNavbarBuka.map((item) => {
               return (
                 <Box key={item.key} m={5} mt={5} pl={10} pr={10}>
@@ -171,8 +171,8 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
               backgroundColor: "white",
               padding: '15px 30px',
               border: `1px solid ${Warna.warnaBorder}`,
-        borderRadius: 10,
-        boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
+              borderRadius: 10,
+              boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
             }}
               mih={"95vh"}
             >
