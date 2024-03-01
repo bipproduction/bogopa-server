@@ -1,6 +1,7 @@
 'use client'
 import { Warna } from '@/module/_global';
 import { ActionIcon, Box, Button, Center, Group, Pagination, Switch, Table, Text } from '@mantine/core';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { AiOutlineFileSearch } from 'react-icons/ai';
 import { LiaEditSolid } from 'react-icons/lia';
@@ -48,6 +49,7 @@ export default function TableRole() {
       name: 'Dono',
     },
   ]
+  const router = useRouter()
   return (
     <>
     <Box style={{
@@ -80,7 +82,7 @@ export default function TableRole() {
                   <Table.Td >
                     <Center>
                     <Group>
-                      <ActionIcon variant="subtle">
+                      <ActionIcon variant="subtle" onClick={() => router.push("/role/edit/"+ v.id)}>
                       <LiaEditSolid size={30}/>
                       </ActionIcon>
                     </Group>
