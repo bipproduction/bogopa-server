@@ -1,7 +1,6 @@
 'use client'
 import { EChartsOption } from "echarts";
 import EChartsReact from "echarts-for-react";
-import * as echarts from 'echarts';
 import React, { useState } from 'react';
 import { useShallowEffect } from "@mantine/hooks";
 import { Box, Text } from "@mantine/core";
@@ -21,47 +20,46 @@ export default function PieChartGift() {
       },
       title: {
         text: 'TRANSAKSI GIFT',
-        left: 'center',
         textStyle: {
           fontSize: 16,
-          color: Warna.pink,
+          color: Warna.biruTua,
         }
       },
       legend: {
         bottom: 10,
-         left: 'center',
-       },
-          series: [
-            {
-              labelLine: {
-                show: false,
-              },
-    
-              label: {
-                position: "inner",
-                formatter: (a) => {
-                  return `${a.value}`;
-                },
-              },
-              name: 'TRANSAKSI GIFT',
-              type: 'pie',
-              radius: '80%',
-              data: [
-            { value: 1048, name: 'SINGA' },
-            { value: 735, name: 'MAWAR' },
-            { value: 580, name: 'TOPI' },
+        left: 'center',
+      },
+      series: [
+        {
+          labelLine: {
+            show: false,
+          },
+
+          label: {
+            position: "inner",
+            formatter: (a) => {
+              return `${a.value}`;
+            },
+          },
+          name: 'TRANSAKSI GIFT',
+          type: 'pie',
+          radius: '80%',
+          data: [
+            { value: 580, name: 'TOPI', itemStyle: { color: '#a384e3' } },
+            { value: 1048, name: 'SINGA', itemStyle: { color: '#92d7c9' } },
+            { value: 735, name: 'MAWAR', itemStyle: { color: '#f6af8e' } },
           ],
-              emphasis: {
-                itemStyle: {
-                  shadowBlur: 10,
-                  shadowOffsetX: 0,
-                  shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-              },
-    
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
             }
-          ]
+          },
+
         }
+      ]
+    }
     setOptions(option);
   }
   return (
