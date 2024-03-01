@@ -21,47 +21,46 @@ export default function PieChartVip() {
       },
       title: {
         text: 'TRANSAKSI VIP',
-        left: 'center',
         textStyle: {
           fontSize: 16,
-          color: Warna.pink,
+          color: Warna.biruTua,
         }
       },
       legend: {
         bottom: 10,
-         left: 'center',
-       },
-          series: [
-            {
-              labelLine: {
-                show: false,
-              },
-    
-              label: {
-                position: "inner",
-                formatter: (a) => {
-                  return `${a.value}`;
-                },
-              },
-              name: 'TRANSAKSI VIP',
-              type: 'pie',
-              radius: '80%',
-              data: [
-            { value: 1048, name: 'VIP' },
-            { value: 735, name: 'GOLD' },
-            { value: 580, name: 'PREMIUM' },
+        left: 'center',
+      },
+      series: [
+        {
+          labelLine: {
+            show: false,
+          },
+
+          label: {
+            position: "inner",
+            formatter: (a) => {
+              return `${a.value}`;
+            },
+          },
+          name: 'TRANSAKSI VIP',
+          type: 'pie',
+          radius: '80%',
+          data: [
+            { value: 1048, name: 'VIP', itemStyle: { color: '#a384e3' } },
+            { value: 735, name: 'GOLD', itemStyle: { color: '#92d7c9' } },
+            { value: 580, name: 'PREMIUM', itemStyle: { color: '#f6af8e' } },
           ],
-              emphasis: {
-                itemStyle: {
-                  shadowBlur: 10,
-                  shadowOffsetX: 0,
-                  shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-              },
-    
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
             }
-          ]
+          },
+
         }
+      ]
+    }
     setOptions(option);
   }
   return (

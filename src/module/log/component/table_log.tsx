@@ -13,7 +13,7 @@ export default function TableLog() {
          action: 'UPDATE',
          role: 'Admin',
          timestamp: '25 Feb 2024 18:45:34',
-         desc: 'User mengubah status kandidat'
+         desc: 'User mengubah data gift'
       },
       {
          id: 2,
@@ -22,7 +22,7 @@ export default function TableLog() {
          action: 'CREATE',
          role: 'Admin',
          timestamp: '23 Feb 2024 17:04:35',
-         desc: 'User menambah data STEP'
+         desc: 'User menambah data VIP'
       },
       {
          id: 3,
@@ -31,7 +31,7 @@ export default function TableLog() {
          action: 'DELETE',
          role: 'Developer',
          timestamp: '22 Feb 2024 15:20:30',
-         desc: 'User menghapus data ML-AI'
+         desc: 'User menghapus data admin'
       },
       {
          id: 4,
@@ -40,7 +40,7 @@ export default function TableLog() {
          action: 'UPDATE',
          role: 'Admin',
          timestamp: '22 Feb 2024 10:00:19',
-         desc: 'User mengubah status kandidat'
+         desc: 'User mengubah data VIP'
       },
 
    ]

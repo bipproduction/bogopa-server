@@ -3,7 +3,6 @@ import { Warna } from '@/module/_global';
 import { ActionIcon, Anchor, Box, Button, Center, Group, Pagination, Table, Text } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import { AiOutlineFileSearch } from 'react-icons/ai';
 
 export default function TableTransaksiGift() {
   const User = [
@@ -51,10 +50,10 @@ export default function TableTransaksiGift() {
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,
         borderRadius: 10,
-        boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.10)",
+        boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
       }}>
         <Box p={20}>
-          <Text c={Warna.pink} fw={"bold"} pb={10}>LIST TRANSAKSI GIFT</Text>
+          <Text c={Warna.biruTua} fw={"bold"} pb={10}>LIST TRANSAKSI GIFT</Text>
           <Table  >
             <Table.Thead >
               <Table.Tr >
@@ -70,8 +69,8 @@ export default function TableTransaksiGift() {
                 <Table.Tr key={i}>
                   <Table.Td>{i + 1}</Table.Td>
                   <Table.Td>
-                  <Anchor c={Warna.ungu} onClick={() => router.push('/transaksi/' + v.id)}>
-                    {v.no_trans}
+                    <Anchor c={Warna.ungu} onClick={() => router.push('/transaksi/' + v.id)}>
+                      {v.no_trans}
                     </Anchor>
                   </Table.Td>
                   <Table.Td >{v.user}</Table.Td>
@@ -81,11 +80,11 @@ export default function TableTransaksiGift() {
               ))}
             </Table.Tbody>
           </Table>
+          <Group justify='flex-end' pt={20} pb={5}>
+            <Pagination total={10} color={Warna.pink} />
+          </Group>
         </Box>
       </Box>
-      <Group justify='flex-end' pt={20}>
-      <Pagination total={10} color={Warna.pink} />
-      </Group>
     </>
   );
 }

@@ -21,7 +21,7 @@ export default function EchartTransaksi() {
         text: 'TRANSAKSI PERHARI',
         textStyle: {
           fontSize: 20,
-          color: Warna.pink
+          color: Warna.biruTua
         }
       },
       grid: {
@@ -58,7 +58,7 @@ export default function EchartTransaksi() {
         {
           data: [23, 54, 42, 16, 53, 81, 53, 32],
           type: 'line',
-          color: Warna.pink,
+          color: Warna.ungu,
           showSymbol: false,
           areaStyle: {
             opacity: 1,
@@ -69,7 +69,7 @@ export default function EchartTransaksi() {
               },
               {
                 offset: 1,
-                color: Warna.pink
+                color: Warna.ungu
               }
             ])
           },
