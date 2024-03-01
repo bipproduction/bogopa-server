@@ -17,7 +17,7 @@ export default function ViewEditRole() {
     <>
       <ButtonBack />
       <Box pb={20} pt={20}>
-        <Text fz={30} c={Warna.biruTua}>EDIT ROLE</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>EDIT ROLE</Text>
       </Box>
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,

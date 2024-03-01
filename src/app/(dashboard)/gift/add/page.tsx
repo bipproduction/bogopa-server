@@ -1,10 +1,9 @@
 import { ViewAddGift } from '@/module/gift';
 import React from 'react';
 
-function Page() {
+export default function Page() {
   return (
-    <ViewAddGift/>
+    <ViewAddGift />
   );
 }
 
-export default Page;

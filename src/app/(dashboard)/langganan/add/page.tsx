@@ -1,10 +1,10 @@
-import { ViewAddAdmin } from '@/module/admin';
+import { ViewAddLangganan } from '@/module/langganan';
 import React from 'react';
 
 export default function Page() {
   return (
     <>
-      <ViewAddAdmin />
+      <ViewAddLangganan />
     </>
   );
 }

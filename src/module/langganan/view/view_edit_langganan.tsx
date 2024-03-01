@@ -1,13 +1,13 @@
-"use client"
-import { ButtonBack, Warna } from '@/module/_global';
-import { Box, Button, Modal, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
-import React from 'react';
+'use client'
 import { useAtom } from 'jotai';
-import { isModalVip } from '../val/isModalVip';
-import ModalAddVip from '../components/modal_add_vip';
+import React from 'react';
+import { Box, Button, Modal, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
+import { ButtonBack, Warna } from '@/module/_global';
+import { isModalLangganan } from '../val/isModalLangganan';
+import ModalEditLangganan from '../components/modal_edit_langganan';
 
-export default function ViewAddVip() {
-  const [openModal, setOpenModal] = useAtom(isModalVip)
+export default function ViewEditLangganan({ id }: { id: string }) {
+  const [openModal, setOpenModal] = useAtom(isModalLangganan)
 
   function onConfirmation() {
     setOpenModal(true)
@@ -16,7 +16,7 @@ export default function ViewAddVip() {
     <>
       <ButtonBack />
       <Box pb={20} pt={20}>
-        <Text fz={30} c={Warna.biruTua}>CREATE VIP</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>EDIT LANGGANAN</Text>
       </Box>
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,
@@ -41,7 +41,7 @@ export default function ViewAddVip() {
         withCloseButton={false}
         closeOnClickOutside={false}
       >
-        <ModalAddVip />
+        <ModalEditLangganan />
       </Modal>
     </>
   );

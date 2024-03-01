@@ -2,4 +2,4 @@
 
 import { atom } from "jotai"
 
-export const isModalVip = atom(false)
+export const isModalLangganan = atom(false)

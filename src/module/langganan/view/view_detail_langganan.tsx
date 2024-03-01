@@ -7,13 +7,13 @@ import { TbReportMoney } from "react-icons/tb";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 
-export default function ViewDetailVip({ id }: { id: string }) {
+export default function ViewDetaiLangganan({ id }: { id: string }) {
 
   return (
     <>
       <ButtonBack />
       <Box pb={20} pt={20}>
-        <Text fz={25} c={Warna.biruTua} fw={'bold'}>DETAIL VIP</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>DETAIL LANGGANAN</Text>
       </Box>
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,

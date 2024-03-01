@@ -16,7 +16,7 @@ export default function ViewEditGift() {
     <>
       <ButtonBack />
       <Box pb={20} pt={20}>
-        <Text fz={30} c={Warna.biruTua}>EDIT GIFT</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>EDIT GIFT</Text>
       </Box>
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,
@@ -41,7 +41,7 @@ export default function ViewEditGift() {
         withCloseButton={false}
         closeOnClickOutside={false}
       >
-       <ModalEditGift/>
+        <ModalEditGift />
       </Modal>
     </>
   );
