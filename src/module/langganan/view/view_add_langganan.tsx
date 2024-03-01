@@ -1,13 +1,13 @@
-'use client'
-import { useAtom } from 'jotai';
-import React from 'react';
-import { isModalVip } from '../val/isModalVip';
-import { Box, Button, Modal, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
+"use client"
 import { ButtonBack, Warna } from '@/module/_global';
-import ModalEditVip from '../components/modal_edit_vip';
+import { Box, Button, Modal, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
+import React from 'react';
+import { useAtom } from 'jotai';
+import { isModalLangganan } from '../val/isModalLangganan';
+import ModalAddLangganan from '../components/modal_add_langganan';
 
-export default function ViewEditVip({id}: {id: string}) {
-  const [openModal, setOpenModal] = useAtom(isModalVip)
+export default function ViewAddLangganan() {
+  const [openModal, setOpenModal] = useAtom(isModalLangganan)
 
   function onConfirmation() {
     setOpenModal(true)
@@ -16,7 +16,7 @@ export default function ViewEditVip({id}: {id: string}) {
     <>
       <ButtonBack />
       <Box pb={20} pt={20}>
-        <Text fz={30} c={Warna.biruTua}>EDIT VIP</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>CREATE LANGGANAN</Text>
       </Box>
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,
@@ -25,7 +25,7 @@ export default function ViewEditVip({id}: {id: string}) {
       }}>
         <Box p={30}>
           <Stack>
-          <TextInput placeholder='Create Name' label="Name" />
+            <TextInput placeholder='Create Name' label="Name" />
             <NumberInput placeholder='Create Harga' label="Harga" />
             <Textarea placeholder='Create Detail' label="Detail" />
             <Box pt={10}>
@@ -41,7 +41,7 @@ export default function ViewEditVip({id}: {id: string}) {
         withCloseButton={false}
         closeOnClickOutside={false}
       >
-        <ModalEditVip/>
+        <ModalAddLangganan />
       </Modal>
     </>
   );

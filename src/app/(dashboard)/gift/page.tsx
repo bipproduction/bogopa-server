@@ -1,10 +1,8 @@
 import { ViewGift } from '@/module/gift';
 import React from 'react';
 
-function Page() {
+export default function Page() {
   return (
-    <ViewGift/>
+    <ViewGift />
   );
 }
-
-export default Page;

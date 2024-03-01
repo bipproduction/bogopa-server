@@ -2,12 +2,11 @@
 import { ButtonBack, Warna } from '@/module/_global';
 import { Box, Button, Modal, NumberInput, Select, Stack, Text, TextInput, Textarea } from '@mantine/core';
 import React from 'react';
-import { DateInput } from '@mantine/dates';
 import { useAtom } from 'jotai';
 import { isModalAdmin } from '../val/isModalAdmin';
-import ModalAddAdmin from '../components/modal_add_admin';
+import ModalEditAdmin from '../components/modal_edit_admin';
 
-export default function ViewEditAdmin({id}: {id: string}) {
+export default function ViewEditAdmin({ id }: { id: string }) {
   const [openModal, setOpenModal] = useAtom(isModalAdmin)
 
   function onConfirmation() {
@@ -17,7 +16,7 @@ export default function ViewEditAdmin({id}: {id: string}) {
     <>
       <ButtonBack />
       <Box pb={20} pt={20}>
-        <Text fz={30} c={Warna.biruTua}>EDIT ADMIN</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}>EDIT ADMIN</Text>
       </Box>
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,
@@ -44,7 +43,7 @@ export default function ViewEditAdmin({id}: {id: string}) {
         withCloseButton={false}
         closeOnClickOutside={false}
       >
-        <ModalAddAdmin />
+        <ModalEditAdmin />
       </Modal>
     </>
   );

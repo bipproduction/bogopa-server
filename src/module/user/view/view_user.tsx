@@ -6,7 +6,6 @@ import TableUser from '../components/table_user';
 import { GoSearch } from "react-icons/go";
 
 export default function ViewUser() {
-
   return (
     <>
       <Group >

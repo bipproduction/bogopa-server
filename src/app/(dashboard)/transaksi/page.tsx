@@ -1,10 +1,8 @@
 import { ViewTransaksi } from '@/module/transaksi';
 import React from 'react';
 
-function Page() {
+export default function Page() {
   return (
-    <ViewTransaksi/>
+    <ViewTransaksi />
   );
 }
-
-export default Page;

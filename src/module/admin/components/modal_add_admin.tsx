@@ -7,7 +7,6 @@ import toast from "react-simple-toasts"
 import { isModalAdmin } from '../val/isModalAdmin';
 import { IoWarningOutline } from "react-icons/io5";
 
-
 export default function ModalAddAdmin() {
   const router = useRouter()
   const [valOpenModal, setOpenModal] = useAtom(isModalAdmin)

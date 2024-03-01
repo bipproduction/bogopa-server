@@ -7,7 +7,7 @@ import { LiaEditSolid } from 'react-icons/lia'
 import { FiFolderPlus } from 'react-icons/fi'
 import { useRouter } from 'next/navigation';
 
-export default function TableVip() {
+export default function TableLangganan() {
   const router = useRouter()
   const User = [
     {
@@ -50,7 +50,7 @@ export default function TableVip() {
                 <Table.Tr key={i}>
                   <Table.Td>{i + 1}</Table.Td>
                   <Table.Td >
-                    <Anchor onClick={() => router.push('/vip/' + v.id)}>
+                    <Anchor onClick={() => router.push('/langganan/' + v.id)}>
                     {v.name}
                     </Anchor>
                   </Table.Td>
@@ -60,7 +60,7 @@ export default function TableVip() {
                   <Table.Td >
                     <Center>
                       <Group>
-                        <ActionIcon variant="subtle" onClick={() => router.push('/vip/edit/' + v.id)} >
+                        <ActionIcon variant="subtle" onClick={() => router.push('/langganan/edit/' + v.id)} >
                           <LiaEditSolid size={30} />
                         </ActionIcon>
                       </Group>

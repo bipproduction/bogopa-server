@@ -1,19 +1,19 @@
 'use client'
 import { Alert, Avatar, Box, Button, Group, Text } from '@mantine/core';
 import { useAtom } from 'jotai';
-import React from 'react';
-import { isModalAdmin } from '../val/isModalAdmin';
-import { IoWarningOutline } from 'react-icons/io5';
-import toast from 'react-simple-toasts';
 import { useRouter } from 'next/navigation';
+import React from 'react';
+import toast from "react-simple-toasts"
+import { IoWarningOutline } from 'react-icons/io5';
+import { isModalLangganan } from '../val/isModalLangganan';
 
-export default function ModalEditAdmin() {
+export default function ModalAddLangganan() {
   const router = useRouter()
-  const [valOpenModal, setOpenModal] = useAtom(isModalAdmin)
+  const [valOpenModal, setOpenModal] = useAtom(isModalLangganan)
 
   async function AddVip() {
     setOpenModal(false)
-    toast("Edit ADMIN Success", { theme: "dark" })
+    toast("Create VIP Success", { theme: "dark" })
   }
   return (
     <>
@@ -24,7 +24,7 @@ export default function ModalEditAdmin() {
           </Avatar>
         </Group>
         <Text fw={700} ta={"center"} mb={20} mt={20}>
-          ANDA YAKIN INGIN MENGEDIT ADMIN?
+          ANDA YAKIN INGIN MENAMBAH DATA LANGGANAN?
         </Text>
         <Group justify="space-between" pt={10}>
           <Button

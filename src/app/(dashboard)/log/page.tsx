@@ -1,10 +1,8 @@
 import { ViewLog } from '@/module/log';
 import React from 'react';
 
-function Page() {
+export default function Page() {
   return (
-    <ViewLog/>
+    <ViewLog />
   );
 }
-
-export default Page;

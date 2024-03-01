@@ -1,10 +1,11 @@
-import { ViewDetailUser } from '@/module/user';
+import { ViewDetailLangganan } from '@/module/langganan';
 import React from 'react';
 
 export default function Page({ params }: { params: { id: string } }) {
   return (
     <>
-      <ViewDetailUser id={params.id} />
+      <ViewDetailLangganan id={params.id} />
     </>
   );
 }
+

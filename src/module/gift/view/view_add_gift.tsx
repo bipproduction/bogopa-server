@@ -16,7 +16,7 @@ export default function ViewAddGift() {
     <>
       <ButtonBack />
       <Box pb={20} pt={20}>
-        <Text fz={30} c={Warna.biruTua}>CREATE GIFT</Text>
+        <Text fz={25} c={Warna.biruTua} fw={'bold'}> CREATE GIFT</Text>
       </Box>
       <Box style={{
         border: `1px solid ${Warna.warnaBorder}`,
@@ -41,7 +41,7 @@ export default function ViewAddGift() {
         withCloseButton={false}
         closeOnClickOutside={false}
       >
-        <ModalAddGift/>
+        <ModalAddGift />
       </Modal>
     </>
   );

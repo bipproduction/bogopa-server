@@ -11,33 +11,33 @@ datasource db {
 }
 
 model User {
-  id               String        @id @default(cuid())
+  id               String             @id @default(cuid())
   name             String
-  email            String?       @unique
-  phone            String?       @unique
+  email            String?            @unique
+  phone            String?            @unique
   password         String
-  dateBirth        DateTime      @db.Date
-  gender           Int           @default(1) //1 : laki-laki, 2 : perempuan
+  dateBirth        DateTime           @db.Date
+  gender           Int                @default(1) //1 : laki-laki, 2 : perempuan
   bio              String
-  isVerif          Boolean       @default(false)
-  isActive         Boolean       @default(true)
-  createdAt        DateTime      @default(now())
-  updatedAt        DateTime      @updatedAt
+  isVerif          Boolean            @default(false)
+  isActive         Boolean            @default(true)
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
   UserPhoto        UserPhoto[]
   UserSetting      UserSetting[]
-  DatingLike       DatingLike[]  @relation("UserToNgeLike")
-  DatingUserDiLike DatingLike[]  @relation("UserToDiLike")
-  ChatUser1        Chat[]        @relation("UserToChat1")
-  ChatUser2        Chat[]        @relation("UserToChat2")
-  ChatMessageFrom  ChatMessage[] @relation("UserToMessageFrom")
-  ChatMessageTo    ChatMessage[] @relation("UserToMessageTo")
+  DatingLike       DatingLike[]       @relation("UserToNgeLike")
+  DatingUserDiLike DatingLike[]       @relation("UserToDiLike")
+  ChatUser1        Chat[]             @relation("UserToChat1")
+  ChatUser2        Chat[]             @relation("UserToChat2")
+  ChatMessageFrom  ChatMessage[]      @relation("UserToMessageFrom")
+  ChatMessageTo    ChatMessage[]      @relation("UserToMessageTo")
   Live             Live[]
   LiveViewer       LiveViewer[]
-  VipPayment       VipPayment[]
-  VipUser          VipUser[]
   LiveComment      LiveComment[]
   GiftUser         GiftUser[]
   GiftPayment      GiftPayment[]
+  LanggananPayment LanggananPayment[]
+  LanggananUser    LanggananUser[]
 }
 
 model UserPhoto {
@@ -146,53 +146,53 @@ model LiveComment {
   updatedAt DateTime @updatedAt
 }
 
-model Vip {
-  id         Int          @id @default(autoincrement())
-  name       String
-  price      Int          @default(0)
-  isActive   Boolean      @default(true)
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime     @updatedAt
-  VipDetail  VipDetail[]
-  VipPayment VipPayment[]
-  VipUser    VipUser[]
+model Langganan {
+  id               Int                @id @default(autoincrement())
+  name             String
+  price            Int                @default(0)
+  isActive         Boolean            @default(true)
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  LanggananDetail  LanggananDetail[]
+  LanggananPayment LanggananPayment[]
+  LanggananUser    LanggananUser[]
 }
 
-model VipDetail {
-  id        String   @id @default(cuid())
-  Vip       Vip      @relation(fields: [idVip], references: [id])
-  idVip     Int
-  name      String
-  isActive  Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model LanggananDetail {
+  id          String    @id @default(cuid())
+  Langganan   Langganan @relation(fields: [idLangganan], references: [id])
+  idLangganan Int
+  name        String
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
-model VipPayment {
-  id            String   @id @default(cuid())
-  Vip           Vip      @relation(fields: [idVip], references: [id])
-  idVip         Int
-  User          User     @relation(fields: [idUser], references: [id])
+model LanggananPayment {
+  id            String    @id @default(cuid())
+  Langganan     Langganan @relation(fields: [idLangganan], references: [id])
+  idLangganan   Int
+  User          User      @relation(fields: [idUser], references: [id])
   idUser        String
   totalPrice    Int
-  statusPayment Int      @default(0) // blm bayar
+  statusPayment Int       @default(0) // blm bayar
   timePayment   DateTime
-  isActive      Boolean  @default(true)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
 
-model VipUser {
-  id        String   @id @default(cuid())
-  Vip       Vip      @relation(fields: [idVip], references: [id])
-  idVip     Int
-  User      User     @relation(fields: [idUser], references: [id])
-  idUser    String
-  dateFrom  DateTime @db.Date
-  dateTo    DateTime @db.Date
-  isActive  Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model LanggananUser {
+  id          String    @id @default(cuid())
+  Langganan   Langganan @relation(fields: [idLangganan], references: [id])
+  idLangganan Int
+  User        User      @relation(fields: [idUser], references: [id])
+  idUser      String
+  dateFrom    DateTime  @db.Date
+  dateTo      DateTime  @db.Date
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
 model Gift {
