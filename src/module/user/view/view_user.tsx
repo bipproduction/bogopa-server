@@ -9,12 +9,14 @@ export default function ViewUser() {
 
   return (
     <>
-      <Box>
-        <Text fz={25} c={Warna.biruTua} fw={'bold'}>USER</Text>
-      </Box>
+      <Group >
+        <Box>
+          <Text fz={25} c={Warna.biruTua} fw={'bold'}>USER</Text>
+        </Box>
+      </Group>
       <Box pt={20}>
-        <Group justify="flex-end" mb={20} grow>
-          <Input placeholder="Search by name, email or phone ..." leftSection={<GoSearch size={16} />} />
+        <Group pb={10} justify="space-between">
+          <Input radius={10} placeholder="Search by name, email or phone ..." leftSection={<GoSearch size={16} />} w={400} />
         </Group>
         <TableUser />
       </Box>

@@ -82,7 +82,7 @@ export default function TableGift() {
                   <Table.Td >
                     <Center>
                       <Group>
-                        <ActionIcon variant="subtle">
+                        <ActionIcon variant="subtle" onClick={() => router.push("/gift/edit/" + v.id)}>
                           <LiaEditSolid size={30} />
                         </ActionIcon>
                       </Group>
