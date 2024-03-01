@@ -5,10 +5,12 @@ import "@mantine/dates/styles.css";
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Nunito, Roboto } from "next/font/google";
 import 'react-simple-toasts/dist/theme/dark.css'
+import '@mantine/notifications/styles.css';
+import { Notifications } from '@mantine/notifications';
 
 
 const nunito = Nunito({
-  weight: ["300","400", "500", "600", "700", "800", "900", "1000"],
+  weight: ["300", "400", "500", "600", "700", "800", "900", "1000"],
   subsets: ["latin"],
   display: "fallback",
 });
@@ -35,7 +37,7 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body style={roboto.style} >
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider> <Notifications position='top-right' zIndex={1000} />{children}</MantineProvider>
       </body>
     </html>
   );
