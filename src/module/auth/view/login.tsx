@@ -7,6 +7,8 @@ import { LuShieldCheck } from 'react-icons/lu'
 import { RiUserHeartLine } from 'react-icons/ri'
 import { useRouter } from 'next/navigation';
 import { Warna } from '@/module/_global';
+import { notifications } from '@mantine/notifications';
+
 
 export default function Login() {
   const focusTrapRef = useFocusTrap()

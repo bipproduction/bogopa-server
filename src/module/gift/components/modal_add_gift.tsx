@@ -6,6 +6,7 @@ import React from 'react';
 import toast from "react-simple-toasts"
 import { isModalGift } from '../val/isModalGift';
 import { IoWarningOutline } from 'react-icons/io5';
+import { notifications } from '@mantine/notifications';
 
 export default function ModalAddGift() {
   const router = useRouter()
@@ -13,7 +14,14 @@ export default function ModalAddGift() {
 
   async function AddVip() {
     setOpenModal(false)
-    toast("Create GIFT Success", { theme: "dark" })
+    // toast("Create GIFT Success", { theme: "dark" })
+    notifications.show({
+      withCloseButton: false,
+      withBorder: true,
+      color: "green",
+      title: 'CREATE GIFT',
+      message: 'Create Gift Success',
+    })
   }
   return (
     <>
