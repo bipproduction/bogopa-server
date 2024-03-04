@@ -3,10 +3,9 @@ import { Alert, Avatar, Box, Button, Group, Text } from '@mantine/core';
 import { useAtom } from 'jotai';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import toast from "react-simple-toasts"
-import { Warna } from '@/module/_global';
 import { isModalRole } from '../val/isModalRole';
 import { IoWarningOutline } from 'react-icons/io5';
+import { notifications } from '@mantine/notifications';
 
 export default function ModalAddRole() {
   const router = useRouter()
@@ -14,7 +13,13 @@ export default function ModalAddRole() {
 
   async function AddVip() {
     setOpenModal(false)
-    toast("Create ROLE Success", { theme: "dark" })
+    notifications.show({
+      withCloseButton: false,
+      withBorder: true,
+      color: "green",
+      title: 'CREATE ROLE',
+      message: 'Create Role Success',
+    })
   }
   return (
     <>

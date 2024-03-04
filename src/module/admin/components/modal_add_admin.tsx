@@ -3,9 +3,9 @@ import { Alert, Avatar, Box, Button, Group, Text } from '@mantine/core';
 import { useAtom } from 'jotai';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import toast from "react-simple-toasts"
 import { isModalAdmin } from '../val/isModalAdmin';
 import { IoWarningOutline } from "react-icons/io5";
+import { notifications } from '@mantine/notifications';
 
 export default function ModalAddAdmin() {
   const router = useRouter()
@@ -13,7 +13,13 @@ export default function ModalAddAdmin() {
 
   async function AddVip() {
     setOpenModal(false)
-    toast("Create ADMIN Success", { theme: "dark" })
+    notifications.show({
+      withCloseButton: false,
+      withBorder: true,
+      color: "green",
+      title: 'CREATE ADMIN',
+      message: 'Create Admin Success',
+    })
   }
   return (
     <>
