@@ -4,8 +4,8 @@ import { useAtom } from 'jotai';
 import React from 'react';
 import { isModalAdmin } from '../val/isModalAdmin';
 import { IoWarningOutline } from 'react-icons/io5';
-import toast from 'react-simple-toasts';
 import { useRouter } from 'next/navigation';
+import { notifications } from '@mantine/notifications';
 
 export default function ModalEditAdmin() {
   const router = useRouter()
@@ -13,7 +13,13 @@ export default function ModalEditAdmin() {
 
   async function AddVip() {
     setOpenModal(false)
-    toast("Edit ADMIN Success", { theme: "dark" })
+    notifications.show({
+      withCloseButton: false,
+      withBorder: true,
+      color: "green",
+      title: 'EDIT ADMIN',
+      message: 'Edit Admin Success',
+    })
   }
   return (
     <>
