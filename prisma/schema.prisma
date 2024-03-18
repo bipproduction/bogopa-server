@@ -253,20 +253,20 @@ model AdminComponent {
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
   AdminAccess AdminAccess[]
-  AdminLog    AdminLog[]
 }
 
 model AdminUser {
-  id          Int       @id @default(autoincrement())
-  AdminRole   AdminRole @relation(fields: [idAdminRole], references: [id])
+  id          Int        @id @default(autoincrement())
+  AdminRole   AdminRole  @relation(fields: [idAdminRole], references: [id])
   idAdminRole Int
   name        String
-  email       String    @unique
+  email       String     @unique
   phone       String
   password    String
-  isActive    Boolean   @default(true)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  isActive    Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  AdminLog    AdminLog[]
 }
 
 model AdminAccess {
@@ -281,14 +281,14 @@ model AdminAccess {
 }
 
 model AdminLog {
-  id               String         @id @default(cuid())
-  AdminComponent   AdminComponent @relation(fields: [idAdminComponent], references: [id])
-  idAdminComponent Int
-  activity         String
-  description      String
-  idContent        String
-  tableContent     String
-  isActive         Boolean        @default(true)
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime       @updatedAt
+  id           String    @id @default(cuid())
+  AdminUser    AdminUser @relation(fields: [idAdminUser], references: [id])
+  idAdminUser  Int
+  activity     String
+  description  String
+  idContent    String
+  tableContent String
+  isActive     Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 }

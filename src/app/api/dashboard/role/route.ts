@@ -1,7 +1,6 @@
 import { prisma } from "@/module/_global";
-import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
    const data = await req.json()
    const ins = await prisma.adminRole.create({
       data: data,
@@ -9,13 +8,13 @@ export async function POST(req: NextRequest) {
          id: true
       }
    })
-   return NextResponse.json(
+   return Response.json(
       { 'message': 'post' }
    )
 }
 
 export async function GET() {
-   return NextResponse.json(
+   return Response.json(
       { 'message': 'get' }
    )
 }
