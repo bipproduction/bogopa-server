@@ -1,15 +1,23 @@
-GET http://localhost:3000/api/role HTTP/1.1
-
+GET http://localhost:3000/api/dashboard/role HTTP/1.1
 
 ###
 GET http://localhost:3000/api/apk/user HTTP/1.1
 
 ###
-POST http://localhost:3000/api/role HTTP/1.1
+POST http://localhost:3000/api/dashboard/role HTTP/1.1
 Content-Type: application/json
 
 {
     "name" : "coba yaa"
+}
+
+###
+POST http://localhost:3000/api/apk/user/upd HTTP/1.1
+Content-Type: application/json
+
+{
+    "nameUser" : "coba yaa",
+    "jk": 1
 }
 
 

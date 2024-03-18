@@ -1,10 +1,12 @@
 'use client'
 import { Warna } from '@/module/_global';
 import { Avatar, Badge, Box, Group, Pagination, Table, Text } from '@mantine/core';
-import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function TableLog() {
+export default function TableLog({ data }: { data: any }) {
+   const [isNPage, setNPage] = useState(0)
+   const [isChoosePage, setChoosePage] = useState(1)
+   let noAwal = isChoosePage * 25 - 24
    const User = [
       {
          id: 1,
@@ -63,7 +65,7 @@ export default function TableLog() {
                      </Table.Tr>
                   </Table.Thead>
                   <Table.Tbody  >
-                     {User.map((v, i) => (
+                     {data.map((v: any, i: any) => (
                         <Table.Tr key={i}>
                            <Table.Td>
                               <Group>
@@ -92,7 +94,13 @@ export default function TableLog() {
             </Box>
          </Box>
          <Group justify='flex-end' pt={20}>
-            <Pagination total={10} />
+            <Pagination
+               value={isChoosePage}
+               // onChange={(val) => {
+               //    onLog(val)
+               // }}
+               total={isNPage}
+            />
          </Group>
       </>
    );

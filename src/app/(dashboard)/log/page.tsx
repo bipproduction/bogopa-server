@@ -1,8 +1,8 @@
-import { ViewLog } from '@/module/log';
-import React from 'react';
+import { funGetAllAdmin } from "@/module/admin";
+import { ViewLog } from "@/module/log";
+import React from "react";
 
-export default function Page() {
-  return (
-    <ViewLog />
-  );
+export default async function Page() {
+  const admin = await funGetAllAdmin()
+  return <ViewLog admin={admin} />
 }
