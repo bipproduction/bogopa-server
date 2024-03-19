@@ -1,6 +1,7 @@
 'use server'
 import { prisma } from "@/module/_global";
 import _, { ceil } from 'lodash'
+import moment from 'moment'
 
 
 export default async function funGetLogAdmin({ body }: { body: any }) {
@@ -39,9 +40,16 @@ export default async function funGetLogAdmin({ body }: { body: any }) {
          activity: true,
          createdAt: true,
          description: true,
+         idContent: true,
+         tableContent: true,
          AdminUser: {
             select: {
                name: true,
+               AdminRole: {
+                  select: {
+                     name: true,
+                  }
+               }
             }
          }
       },
@@ -51,9 +59,10 @@ export default async function funGetLogAdmin({ body }: { body: any }) {
    })
 
    const result = data.map((v) => ({
-      ..._.omit(v, ['User']),
+      ..._.omit(v, ['AdminRole', 'AdminUser', 'createdAt']),
+      role: v.AdminUser.AdminRole.name,
       name: v.AdminUser.name,
-
+      time: moment(v.createdAt).format('DD-MM-YYYY HH:mm:ss')
    }))
 
    const nData = await prisma.adminLog.count({
