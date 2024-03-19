@@ -4,8 +4,8 @@ import { unsealData } from "iron-session"
 import _ from "lodash"
 import { cookies } from "next/headers"
 
-export default async function funLogAdmin({ act, desc, idContent, tbContent }: { act: any, desc: any, idContent: any, tbContent: any }) {
-   const c = cookies().get("_cookiesNinox")
+export default async function funAddLogAdmin({ act, desc, idContent, tbContent }: { act: any, desc: any, idContent?: any, tbContent?: any }) {
+   const c = cookies().get("_cookiesBogopaServer")
    const dataCookies = await unsealData(c!.value, { password: pwd_key_config as string })
    await prisma.adminLog.create({
       data: {

@@ -1,18 +1,53 @@
-"use client"
-import { Avatar, Box, Button, Center, Container, Flex, Grid, Group, Image, PasswordInput, SimpleGrid, Stack, Text, TextInput } from '@mantine/core';
+'use client'
+import { Avatar, Box, Button, Center, Flex, Group, Image, PasswordInput, SimpleGrid, Stack, Text, TextInput } from '@mantine/core';
 import { useFocusTrap } from '@mantine/hooks';
-import React from 'react';
-import ViewUser from '../../user/view/view_user';
+import React, { useState } from 'react';
 import { LuShieldCheck } from 'react-icons/lu'
 import { RiUserHeartLine } from 'react-icons/ri'
-import { useRouter } from 'next/navigation';
-import { Warna } from '@/module/_global';
-import { notifications } from '@mantine/notifications';
-
+import { useRouter } from 'next/navigation'
+import { Warna } from '@/module/_global'
+import { notifications } from '@mantine/notifications'
+import funLogin from '../fun/login';
+import { funSetCookies } from '../fun/set_cookies';
+import { funAddLogAdmin } from '@/module/log';
 
 export default function Login() {
   const focusTrapRef = useFocusTrap()
   const router = useRouter()
+  const [isEmail, setEmail] = useState("")
+  const [isPassword, setPassword] = useState("")
+
+  async function onLogin() {
+    if (isEmail == "" || isPassword == "")
+      return notifications.show({
+        withCloseButton: false,
+        withBorder: true,
+        color: "red",
+        title: 'LOGIN FAILED!',
+        message: 'Please enter your email and password.',
+      })
+
+    const cekLogin = await funLogin({ email: isEmail, pass: isPassword })
+    if (!cekLogin.success)
+      return notifications.show({
+        withCloseButton: false,
+        withBorder: true,
+        color: "red",
+        title: 'LOGIN FAILED!',
+        message: 'Incorrect email or password!',
+      })
+
+    const cookie = await funSetCookies({ user: cekLogin.id })
+    const log = await funAddLogAdmin({ act: 'LOGIN', desc: 'User logged in' })
+    return notifications.show({
+      withCloseButton: false,
+      withBorder: true,
+      color: "green",
+      title: 'SUCCESS!',
+      message: 'Logged in successfully.',
+    })
+  }
+
   return (
     <>
       <Flex justify={"center"} align={"center"} style={{
@@ -42,16 +77,16 @@ export default function Login() {
                 <Text ta={"center"} fw={"bold"} c={'pink'} fz={30}>WELCOME BACK!</Text>
                 <Text ta={"center"} fz={20}>BOGOPA</Text>
               </Box>
-              <Stack pt={25}>
+              <Stack pt={25} ref={focusTrapRef}>
                 <TextInput
-                  placeholder='Email Address'
-                  // onChange={(val) => { setEmail(val.target.value) }}
+                  placeholder='Email'
+                  onChange={(val) => { setEmail(val.target.value) }}
                   radius={'lg'}
                 />
                 <PasswordInput
                   placeholder='Password'
                   radius={'lg'}
-                // onChange={(val) => { setPassword(val.target.value) }}
+                  onChange={(val) => { setPassword(val.target.value) }}
                 />
                 <Group pt={10} justify='space-between'>
                   <Group>
@@ -71,7 +106,7 @@ export default function Login() {
                   bg={"pink"}
                   c={"white"}
                   onClick={() => {
-                    router.push('/home')
+                    onLogin()
                   }}
                 >
                   Login

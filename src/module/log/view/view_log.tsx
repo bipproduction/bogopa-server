@@ -1,10 +1,11 @@
-"use client";
-import { Avatar, Badge, Box, Button, Grid, Group, Pagination, Select, Table, Text } from "@mantine/core";
-import { DateInput } from "@mantine/dates";
-import React, { useState } from "react";
-import { Warna } from "@/module/_global";
-import funGetLogAdmin from "../fun/get_log";
-import moment from "moment";
+"use client"
+import { Avatar, Badge, Box, Button, Grid, Group, Pagination, Select, Table, Text } from "@mantine/core"
+import { DateInput } from "@mantine/dates"
+import React, { useState } from "react"
+import { Warna } from "@/module/_global"
+import funGetLogAdmin from "../fun/get_log"
+import moment from "moment"
+import _ from "lodash"
 
 export default function ViewLog({ admin }: { admin: any }) {
   const [show, setShow] = useState(false)
@@ -30,6 +31,7 @@ export default function ViewLog({ admin }: { admin: any }) {
     setData(load.data)
     setNPage(load.nPage)
   }
+
   return (
     <>
       <Box>
@@ -124,15 +126,16 @@ export default function ViewLog({ admin }: { admin: any }) {
                           </Group>
                         </Table.Td>
                         <Table.Td >
-                          <Text>{v.timestamp}</Text>
+                          <Text>{v.time}</Text>
                         </Table.Td>
                         <Table.Td >
-                          {(v.action == 'UPDATE') && <><Badge color="blue" >{v.action}</Badge></>}
-                          {(v.action == 'CREATE') && <><Badge color="green" >{v.action}</Badge></>}
-                          {(v.action == 'DELETE') && <><Badge color="red" >{v.action}</Badge></>}
+                          {(v.activity == 'UPDATE') && <><Badge color="blue" >{v.activity}</Badge></>}
+                          {(v.activity == 'CREATE') && <><Badge color="green" >{v.activity}</Badge></>}
+                          {(v.activity == 'DELETE') && <><Badge color="red" >{v.activity}</Badge></>}
+                          {(v.activity == 'LOGIN') && <><Badge color="teal" >{v.activity}</Badge></>}
                         </Table.Td>
                         <Table.Td >
-                          <Text>{v.desc}</Text>
+                          <Text>{v.description}</Text>
                         </Table.Td>
                       </Table.Tr>
                     ))}

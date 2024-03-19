@@ -10,9 +10,12 @@ import { DataNavbarBuka } from '../components/data_navbar_buka';
 import { DataNavbarTertutup } from '../components/data_navbar_tertutup';
 import { Warna } from '../../bin/WARNA';
 import { Avatar } from '@mantine/core'
+import { useAtom } from 'jotai';
+import { isModalDashboard } from '../val/val_dashboard';
+import ModalLogoutAdmin from '../components/modal_logout';
 
 export default function LayoutDashboard({ children }: { children: React.ReactNode }) {
-  //   const [valOpenModal, setOpenModal] = useAtom(isModalLayout)
+  const [valOpenModal, setOpenModal] = useAtom(isModalDashboard)
   const [opened, { toggle }] = useDisclosure();
   const [isOpenNavbar, setOpenNavbar] = useState(false)
   const [isNavOpt, setNavOpt] = useState({ width: 250, breakpoint: 'sm', collapsed: { mobile: isOpenNavbar } })
@@ -77,7 +80,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                     </Group>
                     <Group justify='center' >
                       <ActionIcon variant='subtle'
-                      //   onClick={() => setOpenModal(true)}
+                        onClick={() => setOpenModal(true)}
                       >
                         <RiLogoutCircleRLine size={30} color={Warna.ungu} />
                       </ActionIcon>
@@ -164,7 +167,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
                     <Text c={Warna.ungu}>MINIMIZE</Text>
                   </Group>
                   <Group justify='center' pl={20}
-                  //   onClick={() => setOpenModal(true)}
+                    onClick={() => setOpenModal(true)}
                   >
                     <ActionIcon variant='subtle'>
                       <RiLogoutCircleRLine size={30} color={Warna.ungu} />
@@ -196,6 +199,15 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
           </Box>
         </AppShell.Main>
       </AppShell>
+      <Modal
+        opened={valOpenModal}
+        onClose={() => setOpenModal(false)}
+        centered
+        withCloseButton={false}
+        closeOnClickOutside={false}
+      >
+        <ModalLogoutAdmin />
+      </Modal>
     </>
   );
 }

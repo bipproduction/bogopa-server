@@ -1,14 +1,18 @@
 "use client"
 import { ButtonBack, Warna } from '@/module/_global';
-import { Box, Button, FileInput, Modal, MultiSelect, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
-import React from 'react';
+import { Box, Button, FileInput, Modal, MultiSelect, Stack, Text, TextInput } from '@mantine/core';
+import React, { useState } from 'react';
 import { useAtom } from 'jotai';
 import { isModalRole } from '../val/isModalRole';
-import ModalAddRole from '../components/modal_add_role';
 import ModalEditRole from '../components/modal_edit_role';
 
-export default function ViewEditRole() {
+export default function ViewEditRole({ data, komponen }: { data: any, komponen: any }) {
   const [openModal, setOpenModal] = useAtom(isModalRole)
+  const [isBody, setBody] = useState({
+    id: data.data?.id,
+    name: data.data?.name,
+    komponen: data.dataKomponen
+  })
 
   function onConfirmation() {
     setOpenModal(true)
@@ -26,13 +30,25 @@ export default function ViewEditRole() {
       }}>
         <Box p={30}>
           <Stack>
-            <TextInput placeholder='Create Name' label="Name" />
+            <TextInput label="Name" value={isBody.name}
+              onChange={(val) => {
+                setBody({
+                  ...isBody,
+                  name: val.target.value
+                })
+              }} />
             <MultiSelect
               checkIconPosition="right"
-              data={['Home', 'User', 'VIP', 'Transaksi', 'Admin']}
+              data={komponen}
               label="Component"
-              placeholder="Create Component"
-              defaultValue={["Home"]}
+              placeholder="Choose Component"
+              defaultValue={isBody.komponen}
+              onChange={(val) => {
+                setBody({
+                  ...isBody,
+                  komponen: val
+                })
+              }}
             />
             <Box pt={10}>
               <Button fullWidth onClick={onConfirmation}>Submit</Button>
