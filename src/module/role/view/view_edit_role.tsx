@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { useAtom } from 'jotai';
 import { isModalRole } from '../val/isModalRole';
 import ModalEditRole from '../components/modal_edit_role';
+import { notifications } from '@mantine/notifications';
 
 export default function ViewEditRole({ data, komponen }: { data: any, komponen: any }) {
   const [openModal, setOpenModal] = useAtom(isModalRole)
@@ -15,6 +16,16 @@ export default function ViewEditRole({ data, komponen }: { data: any, komponen: 
   })
 
   function onConfirmation() {
+    if(isBody.name=='' || isBody.komponen.length==0){
+      return notifications.show({
+        withCloseButton: false,
+        withBorder: true,
+        color: "red",
+        title: 'WARNING!',
+        message: 'Please fill out the form completely.',
+      })
+    }
+
     setOpenModal(true)
   }
   return (
@@ -30,7 +41,7 @@ export default function ViewEditRole({ data, komponen }: { data: any, komponen: 
       }}>
         <Box p={30}>
           <Stack>
-            <TextInput label="Name" value={isBody.name}
+            <TextInput label="Name" placeholder='Role Name' value={isBody.name}
               onChange={(val) => {
                 setBody({
                   ...isBody,
@@ -63,7 +74,7 @@ export default function ViewEditRole({ data, komponen }: { data: any, komponen: 
         withCloseButton={false}
         closeOnClickOutside={false}
       >
-        <ModalEditRole />
+        <ModalEditRole data={isBody}/>
       </Modal>
     </>
   );

@@ -1,8 +1,9 @@
-import { ViewAdmin } from '@/module/admin';
+import { ViewAdmin, funGetListAdmin } from '@/module/admin';
 import React from 'react';
 
-export default function Page() {
+export default async function Page() {
+  const data = await funGetListAdmin({ page: 1 })
   return (
-    <ViewAdmin />
+    <ViewAdmin data={data}/>
   );
 }

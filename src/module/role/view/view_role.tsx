@@ -14,7 +14,6 @@ export default function ViewRole({ data }: { data: any }) {
   const [isSearch, setSearch] = useState("")
   const [isNPage, setNPage] = useState(data.nPage)
   const [isChoosePage, setChoosePage] = useState(1)
-  let noAwal = isChoosePage * 25 - 24
 
   async function onLoad(p: any) {
     const load = await funGetAllRole({ search: isSearch, page: isChoosePage })
@@ -42,7 +41,7 @@ export default function ViewRole({ data }: { data: any }) {
         <Group pb={10} justify="space-between">
           <Input
             radius={10}
-            placeholder="Search by name, email or phone ..."
+            placeholder="Search by name"
             leftSection={<GoSearch size={16} />} w={400}
             onChange={(val) => { onSearch(val.target.value) }}
           />

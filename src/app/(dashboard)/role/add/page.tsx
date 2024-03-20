@@ -1,10 +1,11 @@
-import { ViewAddRole } from "@/module/role";
+import { ViewAddRole, funGetAllComponent } from "@/module/role";
 import React from 'react';
 
-export default function Page() {
+export default async function Page() {
+   const dataKomponen = await funGetAllComponent()
    return (
       <>
-         <ViewAddRole />
+         <ViewAddRole komponen={dataKomponen}/>
       </>
    )
 }

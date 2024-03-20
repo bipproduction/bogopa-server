@@ -1,15 +1,29 @@
 "use client"
 import { ButtonBack, Warna } from '@/module/_global';
-import { Box, Button, FileInput, Modal, MultiSelect, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
-import React from 'react';
+import { Box, Button, Modal, MultiSelect, Stack, Text, TextInput } from '@mantine/core';
+import React, { useState } from 'react';
 import { useAtom } from 'jotai';
 import { isModalRole } from '../val/isModalRole';
 import ModalAddRole from '../components/modal_add_role';
+import { notifications } from '@mantine/notifications';
 
-export default function ViewAddRole() {
+export default function ViewAddRole({ komponen }: { komponen: any }) {
   const [openModal, setOpenModal] = useAtom(isModalRole)
+  const [isBody, setBody] = useState<any>({
+    name: '',
+    komponen: []
+  })
 
   function onConfirmation() {
+    if (isBody.name == '' || isBody.komponen.length == 0)
+      return notifications.show({
+        withCloseButton: false,
+        withBorder: true,
+        color: "red",
+        title: 'WARNING!',
+        message: 'Please fill out the form completely.',
+      })
+
     setOpenModal(true)
   }
   return (
@@ -25,13 +39,27 @@ export default function ViewAddRole() {
       }}>
         <Box p={30}>
           <Stack>
-            <TextInput placeholder='Create Name' label="Name" />
+            <TextInput placeholder='Role Name' label="Name"
+              value={isBody.name}
+              onChange={(val) => {
+                setBody({
+                  ...isBody,
+                  name: val.target.value
+                })
+              }}
+            />
             <MultiSelect
               checkIconPosition="right"
-              data={['Home', 'User', 'VIP', 'Transaksi', 'Admin']}
+              data={komponen}
               label="Component"
-              placeholder="Create Component"
-              defaultValue={["Home"]}
+              placeholder="Choose Component"
+              value={isBody.komponen}
+              onChange={(val) => {
+                setBody({
+                  ...isBody,
+                  komponen: val
+                })
+              }}
             />
             <Box pt={10}>
               <Button fullWidth onClick={onConfirmation}>Submit</Button>
@@ -46,7 +74,13 @@ export default function ViewAddRole() {
         withCloseButton={false}
         closeOnClickOutside={false}
       >
-        <ModalAddRole />
+        <ModalAddRole data={isBody} onSuccess={() => {
+          setBody({
+            ...isBody,
+            name: '',
+            komponen: []
+          })
+        }} />
       </Modal>
     </>
   );

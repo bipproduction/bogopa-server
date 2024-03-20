@@ -4,6 +4,7 @@ import ViewEditRole from "./view/view_edit_role";
 import funGetAllRole from "./fun/get_all_role";
 import funGetOneRole from "./fun/get_one_role";
 import funGetAllComponent from "./fun/get_all_component";
+import funGetListRoleAdmin from "./fun/get_list_role";
 
 export { ViewRole }
 export { ViewAddRole }
@@ -11,3 +12,4 @@ export { ViewEditRole }
 export { funGetAllRole }
 export { funGetOneRole }
 export { funGetAllComponent }
+export { funGetListRoleAdmin }

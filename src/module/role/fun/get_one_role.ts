@@ -25,8 +25,6 @@ export default async function funGetOneRole({ id }: { id: any }) {
 
    const result = dataKomponen.map(a => a.AdminComponent.name)
 
-   console.log(result)
-
    const allData = {
       data: data,
       dataKomponen: result

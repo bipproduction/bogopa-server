@@ -1,8 +1,9 @@
-import { ViewGift } from '@/module/gift';
+import { ViewGift, funGetListGift } from '@/module/gift';
 import React from 'react';
 
-export default function Page() {
+export default async function Page() {
+  const data = await funGetListGift({ page: 1 })
   return (
-    <ViewGift />
+    <ViewGift data={data}/>
   );
 }

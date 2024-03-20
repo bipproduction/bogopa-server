@@ -118,7 +118,7 @@ export default function ViewLog({ admin }: { admin: any }) {
                         <Table.Td>{noAwal++}</Table.Td>
                         <Table.Td>
                           <Group>
-                            <Avatar src={v.image} />
+                            <Avatar />
                             <Box>
                               <Text fw={"bold"}>{v.name}</Text>
                               <Text c={"gray"} fz={14}>{v.role}</Text>

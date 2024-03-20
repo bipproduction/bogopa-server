@@ -7,7 +7,7 @@ import { isModalGift } from '../val/isModalGift';
 import { IoWarningOutline } from 'react-icons/io5';
 import { notifications } from '@mantine/notifications';
 
-export default function ModalAddGift() {
+export default function ModalAddGift({ data, img }: { data: any, img: any }) {
   const router = useRouter()
   const [valOpenModal, setOpenModal] = useAtom(isModalGift)
 
