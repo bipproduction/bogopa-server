@@ -6,20 +6,36 @@ import React from 'react';
 import { isModalAdmin } from '../val/isModalAdmin';
 import { IoWarningOutline } from "react-icons/io5";
 import { notifications } from '@mantine/notifications';
+import funAddAdmin from '../fun/add_admin';
+import { funAddLogAdmin } from '@/module/log';
 
-export default function ModalAddAdmin() {
+export default function ModalAddAdmin({ data, onSuccess }: { data: any, onSuccess: (val: any) => void }) {
   const router = useRouter()
   const [valOpenModal, setOpenModal] = useAtom(isModalAdmin)
 
   async function AddVip() {
+    const insert = await funAddAdmin({ body: data })
+    if (insert.success) {
+      await funAddLogAdmin({ act: 'CREATE', desc: 'User created data admin', idContent: insert.data, tbContent: 'adminUser' })
+      onSuccess(true)
+      notifications.show({
+        withCloseButton: false,
+        withBorder: true,
+        color: "green",
+        title: 'SUCCESS!',
+        message: 'You`ve successfully created new data',
+      })
+    } else {
+      notifications.show({
+        withCloseButton: false,
+        withBorder: true,
+        color: "red",
+        title: 'ERROR!',
+        message: insert.messsage,
+      })
+    }
+
     setOpenModal(false)
-    notifications.show({
-      withCloseButton: false,
-      withBorder: true,
-      color: "green",
-      title: 'CREATE ADMIN',
-      message: 'Create Admin Success',
-    })
   }
   return (
     <>
@@ -30,7 +46,7 @@ export default function ModalAddAdmin() {
           </Avatar>
         </Group>
         <Text fw={700} ta={"center"} mb={20} mt={20}>
-          ANDA YAKIN INGIN MENAMBAHKAN ADMIN?
+          ARE YOU SURE YOU WANT TO SAVE NEW DATA?
         </Text>
         <Group justify="space-between" pt={10}>
           <Button
