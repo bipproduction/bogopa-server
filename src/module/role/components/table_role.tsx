@@ -2,7 +2,7 @@
 import { Warna } from '@/module/_global';
 import { ActionIcon, Box, Center, Group, Switch, Table } from '@mantine/core';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React from 'react';
 import { LiaEditSolid } from 'react-icons/lia';
 import funUpdateRoleAdmin from '../fun/upd_role';
 import { notifications } from '@mantine/notifications';
@@ -10,14 +10,11 @@ import { funAddLogAdmin } from '@/module/log';
 
 export default function TableRole({ data }: { data: any }) {
   const router = useRouter()
-  const [isData, setData] = useState(data)
 
   async function onChangeActive(id: any, value: any) {
-    console.log(id, value)
     await funUpdateRoleAdmin({ kat: 'active', body: { id: id, isActive: value } })
     const coba = data.find((x: any) => x.id === id).isActive = value
     await funAddLogAdmin({ act: 'UPDATE', desc: 'User updated role data', idContent: id, tbContent: 'adminRole' })
-    setData(coba)
     notifications.show({
       withCloseButton: false,
       withBorder: true,
@@ -40,7 +37,7 @@ export default function TableRole({ data }: { data: any }) {
               <Table.Tr >
                 <Table.Th>NO</Table.Th>
                 <Table.Th>ROLE</Table.Th>
-                <Table.Th>NON AKTIF</Table.Th>
+                <Table.Th>STATUS</Table.Th>
                 <Table.Th>
                   <Center>
                     ACTION
@@ -54,7 +51,7 @@ export default function TableRole({ data }: { data: any }) {
                   <Table.Td>{i + 1}</Table.Td>
                   <Table.Td>{v.name}</Table.Td>
                   <Table.Td >
-                    <Switch size="lg" checked={v.isActive} onLabel="AKTIF" offLabel="NON AKTIF"
+                    <Switch size="lg" checked={v.isActive} onLabel="ACTIVE" offLabel="NON ACTIVE"
                       onChange={(val) => {
                         onChangeActive(v.id, val.currentTarget.checked);
                       }}

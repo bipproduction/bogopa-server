@@ -6,19 +6,24 @@ import React from 'react';
 import { isModalRole } from '../val/isModalRole';
 import { IoWarningOutline } from 'react-icons/io5';
 import { notifications } from '@mantine/notifications';
+import funAddRoleAdmin from '../fun/add_role';
+import { funAddLogAdmin } from '@/module/log';
 
-export default function ModalAddRole() {
+export default function ModalAddRole({ data, onSuccess }: { data: any, onSuccess: (val: any) => void }) {
   const router = useRouter()
   const [valOpenModal, setOpenModal] = useAtom(isModalRole)
 
   async function AddVip() {
+    const insert = await funAddRoleAdmin({ body: data })
+    await funAddLogAdmin({ act: 'CREATE', desc: 'User created role data', idContent: insert.data, tbContent: 'adminRole' })
     setOpenModal(false)
+    onSuccess(true)
     notifications.show({
       withCloseButton: false,
       withBorder: true,
       color: "green",
-      title: 'CREATE ROLE',
-      message: 'Create Role Success',
+      title: 'SUCCESS!',
+      message: 'You`ve successfully created new data',
     })
   }
   return (
@@ -30,7 +35,7 @@ export default function ModalAddRole() {
           </Avatar>
         </Group>
         <Text fw={700} ta={"center"} mb={20} mt={20}>
-          ANDA YAKIN INGIN MENAMBAHKAN ROLE?
+          ARE YOU SURE YOU WANT TO SAVE NEW DATA?
         </Text>
         <Group justify="space-between" pt={10}>
           <Button

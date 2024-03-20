@@ -6,19 +6,23 @@ import React from 'react';
 import { isModalRole } from '../val/isModalRole';
 import { IoWarningOutline } from 'react-icons/io5';
 import { notifications } from '@mantine/notifications';
+import funUpdateRoleAdmin from '../fun/upd_role';
+import { funAddLogAdmin } from '@/module/log';
 
-export default function ModalEditRole() {
+export default function ModalEditRole({ data }: { data: any }) {
   const router = useRouter()
   const [valOpenModal, setOpenModal] = useAtom(isModalRole)
 
   async function AddVip() {
+    await funUpdateRoleAdmin({ kat: 'full', body: data })
+    await funAddLogAdmin({ act: 'UPDATE', desc: 'User updated role data', idContent: data.id, tbContent: 'adminRole' })
     setOpenModal(false)
     notifications.show({
       withCloseButton: false,
       withBorder: true,
       color: "green",
-      title: 'EDIT ROLE',
-      message: 'Edit Role Success',
+      title: 'SUCCESS!',
+      message: 'You`ve successfully updated data',
     })
   }
   return (
@@ -30,7 +34,7 @@ export default function ModalEditRole() {
           </Avatar>
         </Group>
         <Text fw={700} ta={"center"} mb={20} mt={20}>
-          ANDA YAKIN INGIN MENGEDIT ROLE?
+          ARE YOU SURE YOU WANT TO SAVE CHANGES?
         </Text>
         <Group justify="space-between" pt={10}>
           <Button
