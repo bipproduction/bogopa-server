@@ -1,13 +1,11 @@
 'use client'
 import { Warna } from '@/module/_global';
-import { ActionIcon, Avatar, Box, Button, Center, Group, Pagination, Switch, Table, Text } from '@mantine/core';
+import { ActionIcon, Avatar, Box, Center, Group, Switch, Table, Text } from '@mantine/core';
 import React from 'react';
-import { AiOutlineFileSearch } from 'react-icons/ai'
 import { LiaEditSolid } from 'react-icons/lia'
-import { FiFolderPlus } from 'react-icons/fi'
 import { useRouter } from 'next/navigation';
 
-export default function TableGift() {
+export default function TableGift({ data }: { data: any }) {
   const User = [
     {
       id: 1,
@@ -52,9 +50,9 @@ export default function TableGift() {
           <Table  >
             <Table.Thead >
               <Table.Tr >
-                <Table.Th>NAMA</Table.Th>
-                <Table.Th>HARGA</Table.Th>
-                <Table.Th>NON AKTIF</Table.Th>
+                <Table.Th>NAME</Table.Th>
+                <Table.Th>PRICE</Table.Th>
+                <Table.Th>STATUS</Table.Th>
                 <Table.Th>
                   <Center>
                     ACTION
@@ -63,7 +61,7 @@ export default function TableGift() {
               </Table.Tr>
             </Table.Thead>
             <Table.Tbody  >
-              {User.map((v, i) => (
+              {data.map((v: any, i: any) => (
                 <Table.Tr key={i}>
 
                   <Table.Td>
@@ -94,9 +92,6 @@ export default function TableGift() {
           </Table>
         </Box>
       </Box>
-      <Group justify='flex-end' pt={20}>
-        <Pagination total={10} />
-      </Group>
     </>
   );
 }
