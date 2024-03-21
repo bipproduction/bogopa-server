@@ -5,6 +5,7 @@ import _ from 'lodash';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import React from 'react';
+import '@mantine/tiptap/styles.css';
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const c = cookies().get("_cookiesBogopaServer")

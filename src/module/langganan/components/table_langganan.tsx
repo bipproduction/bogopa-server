@@ -7,7 +7,7 @@ import { LiaEditSolid } from 'react-icons/lia'
 import { FiFolderPlus } from 'react-icons/fi'
 import { useRouter } from 'next/navigation';
 
-export default function TableLangganan() {
+export default function TableLangganan({ data }: { data: any }) {
   const router = useRouter()
   const User = [
     {
@@ -46,12 +46,12 @@ export default function TableLangganan() {
               </Table.Tr>
             </Table.Thead>
             <Table.Tbody  >
-              {User.map((v, i) => (
+              {data.map((v: any, i: any) => (
                 <Table.Tr key={i}>
                   <Table.Td>{i + 1}</Table.Td>
                   <Table.Td >
                     <Anchor onClick={() => router.push('/langganan/' + v.id)}>
-                    {v.name}
+                      {v.name}
                     </Anchor>
                   </Table.Td>
                   <Table.Td >

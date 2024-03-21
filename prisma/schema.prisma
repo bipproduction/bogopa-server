@@ -149,23 +149,48 @@ model LiveComment {
 model Langganan {
   id               Int                @id @default(autoincrement())
   name             String
-  price            Int                @default(0)
+  description      String             @db.Text
   isActive         Boolean            @default(true)
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
   LanggananDetail  LanggananDetail[]
   LanggananPayment LanggananPayment[]
   LanggananUser    LanggananUser[]
+  LanggananRange   LanggananRange[]
 }
 
-model LanggananDetail {
-  id          String    @id @default(cuid())
+model LanggananComponent {
+  id              Int               @id @default(autoincrement())
+  name            String
+  description     String            @db.Text
+  isActive        Boolean           @default(true)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  LanggananDetail LanggananDetail[]
+}
+
+model LanggananRange {
+  id          Int       @id @default(autoincrement())
   Langganan   Langganan @relation(fields: [idLangganan], references: [id])
   idLangganan Int
   name        String
+  price       Int       @default(0)
+  rangeTime   Int       @default(0) // 0 = selamanya -- satuannya hari
   isActive    Boolean   @default(true)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+}
+
+model LanggananDetail {
+  id                   String             @id @default(cuid())
+  Langganan            Langganan          @relation(fields: [idLangganan], references: [id])
+  idLangganan          Int
+  LanggananComponent   LanggananComponent @relation(fields: [idLanggananComponent], references: [id])
+  idLanggananComponent Int
+  name                 String
+  isActive             Boolean            @default(true)
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
 }
 
 model LanggananPayment {
@@ -198,7 +223,7 @@ model LanggananUser {
 model Gift {
   id          Int           @id @default(autoincrement())
   name        String
-  img         String
+  img         String?
   price       Int           @default(0)
   isActive    Boolean       @default(true)
   createdAt   DateTime      @default(now())

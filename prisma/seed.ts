@@ -1,4 +1,4 @@
-import { seederAdminAccess, seederAdminComponent, seederAdminRole, seederAdminUser } from '@/module/seeder'
+import { seederAdminAccess, seederAdminComponent, seederAdminRole, seederAdminUser, seederLanggananComponent } from '@/module/seeder'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
@@ -74,6 +74,24 @@ async function main() {
             idAdminComponent: data.idComponent,
             idAdminRole: data.idRole
          },
+      })
+   }
+
+   // ADMIN KOMPONEN LANGGANAN
+   for (let data of seederLanggananComponent) {
+      await prisma.langgananComponent.upsert({
+         where: {
+            id: data.id
+         },
+         update: {
+            name: data.name,
+            description: data.desc
+         },
+         create: {
+            id: data.id,
+            name: data.name,
+            description: data.desc
+         }
       })
    }
 }

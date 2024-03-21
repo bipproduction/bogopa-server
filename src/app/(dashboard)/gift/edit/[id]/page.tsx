@@ -1,10 +1,11 @@
-import { ViewEditGift } from '@/module/gift';
+import { ViewEditGift, funGetOneGift } from '@/module/gift';
 import React from 'react';
 
-export default function Page({ params }: { params: { id: any } }) {
+export default async function Page({ params }: { params: { id: any } }) {
+  const data = await funGetOneGift({ id: params.id })
   return (
     <>
-      <ViewEditGift />
+      <ViewEditGift data={data}/>
     </>
   );
 }
