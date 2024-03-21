@@ -6,22 +6,26 @@ import React from 'react';
 import { isModalGift } from '../val/isModalGift';
 import { IoWarningOutline } from 'react-icons/io5';
 import { notifications } from '@mantine/notifications';
+import funUpdateGift from '../fun/upd_gift';
+import { funAddLogAdmin } from '@/module/log';
 
-export default function ModalEditGift() {
+export default function ModalEditGift({ data, img }: { data: any, img: any }) {
   const router = useRouter()
   const [valOpenModal, setOpenModal] = useAtom(isModalGift)
 
   async function AddVip() {
-    setOpenModal(false)
+    const upd = await funUpdateGift({ kat: 'full', body: data, img: img })
+    await funAddLogAdmin({ act: 'UPDATE', desc: 'User updated data gift', idContent: data.id, tbContent: 'gift' })
     notifications.show({
       withCloseButton: false,
       withBorder: true,
       color: "green",
-      title: 'EDIT GIFT',
-      message: 'Edit Gift Success',
+      title: 'SUCCESS!',
+      message: 'You`ve successfully updated data',
     })
-
+    setOpenModal(false)
   }
+
   return (
     <>
       <Box p={20}>
@@ -31,7 +35,7 @@ export default function ModalEditGift() {
           </Avatar>
         </Group>
         <Text fw={700} ta={"center"} mb={20} mt={20}>
-          ANDA YAKIN INGIN MENGEDIT GIFT?
+          ARE YOU SURE YOU WANT TO SAVE CHANGES?
         </Text>
         <Group justify="space-between" pt={10}>
           <Button

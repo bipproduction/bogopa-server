@@ -1,6 +1,6 @@
 "use client"
 import { ButtonBack, Warna } from '@/module/_global';
-import { Avatar, Box, Button, Center, FileInput, Group, Modal, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
+import { Avatar, Box, Button, Center, FileInput, Group, Image, Modal, NumberInput, Stack, Text, TextInput, Textarea } from '@mantine/core';
 import React, { useRef, useState } from 'react';
 import { useAtom } from 'jotai';
 import { isModalGift } from '../val/isModalGift';
@@ -20,8 +20,18 @@ export default function ViewAddGift() {
   })
 
   function onConfirmation() {
+    if (Object.values(isBody).includes("") || _.isUndefined(img))
+      return notifications.show({
+        withCloseButton: false,
+        withBorder: true,
+        color: "red",
+        title: 'WARNING!',
+        message: 'Please fill out the form completely.',
+      })
+
     setOpenModal(true)
   }
+
   return (
     <>
       <ButtonBack />
@@ -36,12 +46,12 @@ export default function ViewAddGift() {
         <Box p={30}>
           <Stack>
             <Center>
-              <Avatar
+              <Image
                 src={img}
-                size={130}
-                radius={100}
-                alt="kandidat"
+                h={130}
+                alt="gift"
                 color="dark"
+                fallbackSrc="https://placehold.co/600x400?text=Placeholder"
               />
             </Center>
             <Group justify="center">
@@ -90,13 +100,19 @@ export default function ViewAddGift() {
               </Center>
             </Group>
             <TextInput placeholder='Name Gift' label="Name"
+              value={isBody.name}
               onChange={(val) => {
                 setBody({
                   ...isBody,
                   name: val.target.value
                 })
               }} />
-            <NumberInput placeholder='Price' label="Price"
+            <NumberInput placeholder='000' label="Price"
+              leftSection={'Rp.'}
+              thousandSeparator={'.'} 
+              decimalSeparator=','
+              allowDecimal={false}
+              value={isBody.price}
               onChange={(val) => {
                 setBody({
                   ...isBody,
@@ -116,7 +132,16 @@ export default function ViewAddGift() {
         withCloseButton={false}
         closeOnClickOutside={false}
       >
-        <ModalAddGift data={isBody} img={imgForm}/>
+        <ModalAddGift data={isBody} img={imgForm}
+          onSuccess={() => {
+            setIMG(undefined)
+            setImgForm(undefined)
+            setBody({
+              ...isBody,
+              name: '',
+              price: ''
+            })
+          }} />
       </Modal>
     </>
   );

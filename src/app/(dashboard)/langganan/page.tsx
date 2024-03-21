@@ -1,8 +1,9 @@
-import { ViewLangganan } from '@/module/langganan';
+import { ViewLangganan, funGetListLangganan } from '@/module/langganan';
 import React from 'react';
 
-export default function Page() {
+export default async function Page() {
+  const data = await funGetListLangganan({ page: 1 })
   return (
-    <ViewLangganan />
+    <ViewLangganan data={data}/>
   );
 }

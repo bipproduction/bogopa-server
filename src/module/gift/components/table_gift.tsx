@@ -4,40 +4,25 @@ import { ActionIcon, Avatar, Box, Center, Group, Switch, Table, Text } from '@ma
 import React from 'react';
 import { LiaEditSolid } from 'react-icons/lia'
 import { useRouter } from 'next/navigation';
+import { notifications } from '@mantine/notifications';
+import { funAddLogAdmin } from '@/module/log';
+import funUpdateGift from '../fun/upd_gift';
 
 export default function TableGift({ data }: { data: any }) {
-  const User = [
-    {
-      id: 1,
-      name: 'Mawar',
-      image: 'https://i.pravatar.cc/200?img=4',
-      price: '6.000',
-      tgl: '27, Februari 2024',
-    },
-    {
-      id: 2,
-      name: 'Topi',
-      image: 'https://i.pravatar.cc/200?img=4',
-      price: '10.000',
-      tgl: '11, Februari 2024',
-    },
-    {
-      id: 3,
-      name: 'Singa',
-      image: 'https://i.pravatar.cc/200?img=4',
-      price: '1.050.000',
-      tgl: '12, Februari 2024',
-    },
-    {
-      id: 4,
-      name: 'Moyet',
-      image: 'https://i.pravatar.cc/200?img=4',
-      price: '362.000',
-      tgl: '12, Februari 2024',
-    },
-  ]
-
   const router = useRouter()
+
+  async function onChangeActive(id: any, value: any) {
+    await funUpdateGift({ kat: 'active', body: { id: id, isActive: value } })
+    const coba = data.find((x: any) => x.id === id).isActive = value
+    await funAddLogAdmin({ act: 'UPDATE', desc: 'User updated data gift', idContent: id, tbContent: 'gift' })
+    notifications.show({
+      withCloseButton: false,
+      withBorder: true,
+      color: "green",
+      title: 'SUCCESS!',
+      message: 'You`ve successfully updated data',
+    })
+  }
 
   return (
     <>
@@ -66,16 +51,20 @@ export default function TableGift({ data }: { data: any }) {
 
                   <Table.Td>
                     <Group>
-                      <Avatar style={{ cursor: "pointer" }} src={v.image} size='lg' mr={2} onClick={() => router.push('/gift/' + v.id)} />
+                      <Avatar style={{ cursor: "pointer" }} src={`/api/img/gift/${v.img}`} size='lg' mr={2} onClick={() => router.push('/gift/' + v.id)} />
                       <Box>
                         <Text fw={"bold"}>{v.name}</Text>
                         <Text c={"gray"} fz={14}>{v.tgl}</Text>
                       </Box>
                     </Group>
                   </Table.Td>
-                  <Table.Td >{v.price}</Table.Td>
+                  <Table.Td >Rp. {Intl.NumberFormat("id-ID").format(Number(v.price))}</Table.Td>
                   <Table.Td >
-                    <Switch size="lg" onLabel="AKTIF" offLabel="NON AKTIF" />
+                    <Switch size="lg" onLabel="ACTIVE" offLabel="NON ACTIVE" 
+                    checked={v.isActive}
+                    onChange={(val) => {
+                      onChangeActive(v.id, val.currentTarget.checked);
+                    }}/>
                   </Table.Td>
                   <Table.Td >
                     <Center>
