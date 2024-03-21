@@ -1,0 +1,37 @@
+[
+   {
+      "id": 1,
+      "name": "Putar Balik Dating",
+      "desc": "Kembali dan geser lagi"
+   },
+   {
+      "id": 2,
+      "name": "Suka Tak Terbatas",
+      "desc": "Suka sebanyak yang kamu mau"
+   },
+   {
+      "id": 3,
+      "name": "Lihat Siapa Suka Saya",
+      "desc": "Lihat siapa yang menyukai saya"
+   },
+   {
+      "id": 4,
+      "name": "Saya Suka",
+      "desc": "Tingkatkan suka agar orang lain dapat melihat anda lebih cepat"
+   },
+   {
+      "id": 5,
+      "name": "Siapa Mengunjungi Saya",
+      "desc": "Lihat siapa yang mengunjungi profil anda"
+   },
+   {
+      "id": 6,
+      "name": "Gratis 5 Super Per Hari",
+      "desc": "Pencocokan melonjak 5 kali"
+   },
+   {
+      "id": 7,
+      "name": "Saringan Lanjutan",
+      "desc": "Aktifkan untuk melihat hanya pengguna yang telah terverifikasi"
+   }
+]
