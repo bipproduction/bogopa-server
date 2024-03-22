@@ -147,16 +147,17 @@ model LiveComment {
 }
 
 model Langganan {
-  id               Int                @id @default(autoincrement())
-  name             String
-  description      String             @db.Text
-  isActive         Boolean            @default(true)
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime           @updatedAt
-  LanggananDetail  LanggananDetail[]
-  LanggananPayment LanggananPayment[]
-  LanggananUser    LanggananUser[]
-  LanggananRange   LanggananRange[]
+  id                    Int                @id @default(autoincrement())
+  name                  String
+  description           String             @db.Text
+  isShowInLanggananPage Boolean            @default(true)
+  isActive              Boolean            @default(true)
+  createdAt             DateTime           @default(now())
+  updatedAt             DateTime           @updatedAt
+  LanggananDetail       LanggananDetail[]
+  LanggananPayment      LanggananPayment[]
+  LanggananUser         LanggananUser[]
+  LanggananRange        LanggananRange[]
 }
 
 model LanggananComponent {
@@ -187,7 +188,7 @@ model LanggananDetail {
   idLangganan          Int
   LanggananComponent   LanggananComponent @relation(fields: [idLanggananComponent], references: [id])
   idLanggananComponent Int
-  name                 String
+  name                 String?
   isActive             Boolean            @default(true)
   createdAt            DateTime           @default(now())
   updatedAt            DateTime           @updatedAt

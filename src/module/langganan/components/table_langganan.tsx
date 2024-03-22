@@ -2,27 +2,28 @@
 import { Warna } from '@/module/_global';
 import { ActionIcon, Anchor, Box, Button, Center, Group, Pagination, Switch, Table, Text } from '@mantine/core';
 import React from 'react';
-import { AiOutlineFileSearch } from 'react-icons/ai'
 import { LiaEditSolid } from 'react-icons/lia'
-import { FiFolderPlus } from 'react-icons/fi'
 import { useRouter } from 'next/navigation';
+import { funAddLogAdmin } from '@/module/log';
+import { notifications } from '@mantine/notifications';
+import funUpdateLangganan from '../fun/upd_langganan';
 
 export default function TableLangganan({ data }: { data: any }) {
   const router = useRouter()
-  const User = [
-    {
-      id: 1,
-      name: 'Gold',
-    },
-    {
-      id: 2,
-      name: 'Premium',
-    },
-    {
-      id: 3,
-      name: 'VIP',
-    },
-  ]
+
+  async function onChangeActive(id: any, value: any) {
+    await funUpdateLangganan({ kat: 'active', body: { id: id, isActive: value } })
+    const coba = data.find((x: any) => x.id === id).isActive = value
+    await funAddLogAdmin({ act: 'UPDATE', desc: 'User updated langganan data', idContent: id, tbContent: 'langganan' })
+    notifications.show({
+      withCloseButton: false,
+      withBorder: true,
+      color: "green",
+      title: 'SUCCESS!',
+      message: 'You`ve successfully updated data',
+    })
+  }
+
   return (
     <>
 
@@ -36,7 +37,7 @@ export default function TableLangganan({ data }: { data: any }) {
             <Table.Thead >
               <Table.Tr >
                 <Table.Th>NO</Table.Th>
-                <Table.Th>NAMA</Table.Th>
+                <Table.Th>LANGGANAN</Table.Th>
                 <Table.Th>STATUS</Table.Th>
                 <Table.Th>
                   <Center>
@@ -55,7 +56,11 @@ export default function TableLangganan({ data }: { data: any }) {
                     </Anchor>
                   </Table.Td>
                   <Table.Td >
-                    <Switch size="lg" onLabel="AKTIF" offLabel="NON AKTIF" />
+                    <Switch size="lg" checked={v.isActive} onLabel="ACTIVE" offLabel="NON ACTIVE"
+                      onChange={(val) => {
+                        onChangeActive(v.id, val.currentTarget.checked);
+                      }}
+                    />
                   </Table.Td>
                   <Table.Td >
                     <Center>
