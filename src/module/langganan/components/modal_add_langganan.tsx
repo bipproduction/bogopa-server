@@ -6,19 +6,24 @@ import React from 'react';
 import { IoWarningOutline } from 'react-icons/io5';
 import { isModalLangganan } from '../val/isModalLangganan';
 import { notifications } from '@mantine/notifications';
+import { funAddLogAdmin } from '@/module/log';
+import funAddLangganan from '../fun/add_langganan';
 
-export default function ModalAddLangganan() {
+export default function ModalAddLangganan({ data, listHarga, onSuccess }: { data: any, listHarga: any, onSuccess: (val: any) => void }) {
   const router = useRouter()
   const [valOpenModal, setOpenModal] = useAtom(isModalLangganan)
 
   async function AddVip() {
+    const insert = await funAddLangganan({ body: data, harga: listHarga })
+    await funAddLogAdmin({ act: 'CREATE', desc: 'User created langganan data', idContent: insert.data, tbContent: 'langganan' })
     setOpenModal(false)
+    onSuccess(true)
     notifications.show({
       withCloseButton: false,
       withBorder: true,
       color: "green",
-      title: 'CREATE LANGGANAN',
-      message: 'Create Langganan Success',
+      title: 'SUCCESS!',
+      message: 'You`ve successfully created new data',
     })
   }
   return (
@@ -30,7 +35,7 @@ export default function ModalAddLangganan() {
           </Avatar>
         </Group>
         <Text fw={700} ta={"center"} mb={20} mt={20}>
-          ANDA YAKIN INGIN MENAMBAH DATA LANGGANAN?
+          ARE YOU SURE YOU WANT TO SAVE NEW DATA?
         </Text>
         <Group justify="space-between" pt={10}>
           <Button
