@@ -3,11 +3,11 @@ import { ButtonBack, Warna } from '@/module/_global';
 import { Avatar, Box, Divider, Grid, Group, Text } from '@mantine/core';
 import React from 'react';
 import { MdOutlineAccessTimeFilled, MdOutlineMailOutline, MdOutlinePhoneIphone } from "react-icons/md";
-import { LiaBirthdayCakeSolid } from "react-icons/lia";
 import { FaUserTag } from 'react-icons/fa';
 import { TbReportMoney } from 'react-icons/tb';
+import moment from 'moment';
 
-export default function ViewDetailGift({ id }: { id: string }) {
+export default function ViewDetailGift({ data, terbeli }: { data: any, terbeli: any }) {
   return (
     <>
       <ButtonBack />
@@ -21,9 +21,9 @@ export default function ViewDetailGift({ id }: { id: string }) {
           boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
         }}>
           <Box p={30}>
-            <Avatar style={{ cursor: "pointer" }} src={"https://i.pravatar.cc/200?img=4"} size={70} mr={2} />
-            <Text pt={10} fz={20}>GIFT SINGA</Text>
-            <Text fz={14} c={"gray"}>Status Aktif</Text>
+            <Avatar style={{ cursor: "pointer" }} src={`/api/img/gift/${data.img}`} size={70} mr={2} />
+            <Text pt={10} fz={20}>{data.name}</Text>
+            <Text fz={14} c={"gray"}>{(data.isActive) ? 'Active' : 'Non Active'}</Text>
             <Box pt={30} pb={30}>
               <Divider />
             </Box>
@@ -36,10 +36,10 @@ export default function ViewDetailGift({ id }: { id: string }) {
                       padding: 10,
                       borderRadius: 10,
                     }}>
-                      <Text c={"grey"} pl={10} >Total Terbeli</Text>
+                      <Text c={"grey"} pl={10}>Amount Sold</Text>
                       <Group gap={8} pt={20} pb={20} justify='center'>
                         <FaUserTag size={25} color={Warna.pink} />
-                        <Text c={"pink"} pt={5}>429 PEMBELI</Text>
+                        <Text c={"pink"} pt={5}>{terbeli}</Text>
                       </Group>
                     </Box>
                   </Box>
@@ -51,10 +51,10 @@ export default function ViewDetailGift({ id }: { id: string }) {
                       padding: 10,
                       borderRadius: 10,
                     }}>
-                      <Text c={"grey"} pl={10} >Harga</Text>
+                      <Text c={"grey"} pl={10}>Price</Text>
                       <Group gap={8} pt={20} pb={20} justify='center'>
                         <TbReportMoney size={25} color={Warna.pink} />
-                        <Text c={"pink"} pt={5}>Rp.1.050.000</Text>
+                        <Text c={"pink"} pt={5}>Rp. {Intl.NumberFormat("id-ID").format(Number(data.price))}</Text>
                       </Group>
                     </Box>
                   </Box>
@@ -66,10 +66,10 @@ export default function ViewDetailGift({ id }: { id: string }) {
                       padding: 10,
                       borderRadius: 10,
                     }}>
-                      <Text c={"grey"} pl={10} >Time Update</Text>
+                      <Text c={"grey"} pl={10}>Last Updated</Text>
                       <Group gap={8} pt={20} pb={20} justify='center'>
                         <MdOutlineAccessTimeFilled size={25} color={Warna.pink} />
-                        <Text c={"pink"} pt={5}>3 BULAN</Text>
+                        <Text c={"pink"} pt={5}>{moment(data.updatedAt).format('Do MMMM YYYY, h:mm')}</Text>
                       </Group>
                     </Box>
                   </Box>

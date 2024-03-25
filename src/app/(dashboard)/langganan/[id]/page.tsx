@@ -1,10 +1,12 @@
-import { ViewDetailLangganan } from '@/module/langganan';
+import { ViewDetailLangganan, funGetOneDetailLangganan, funGetOneLangganan } from '@/module/langganan';
 import React from 'react';
 
-export default function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { id: string } }) {
+  const data = await funGetOneLangganan({ id: params.id })
+  const hitung = await funGetOneDetailLangganan({ id: params.id })
   return (
     <>
-      <ViewDetailLangganan id={params.id} />
+      <ViewDetailLangganan data={data} terjual={hitung}/>
     </>
   );
 }
