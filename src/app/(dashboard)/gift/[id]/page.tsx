@@ -1,10 +1,12 @@
-import { ViewDetailGift } from '@/module/gift';
+import { ViewDetailGift, funGetOneDetailGift, funGetOneGift } from '@/module/gift';
 import React from 'react';
 
-export default function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { id: string } }) {
+  const data = await funGetOneGift({ id: params.id })
+  const hitung = await funGetOneDetailGift({ id: params.id })
   return (
     <>
-      <ViewDetailGift id={params.id} />
+      <ViewDetailGift data={data} terbeli={hitung} />
     </>
   );
 }

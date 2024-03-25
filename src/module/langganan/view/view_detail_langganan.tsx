@@ -6,9 +6,9 @@ import { FaUserTag } from "react-icons/fa";
 import { TbReportMoney } from "react-icons/tb";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
+import moment from 'moment';
 
-export default function ViewDetaiLangganan({ data }: { data: any }) {
-
+export default function ViewDetaiLangganan({ data, terjual }: { data: any, terjual: any }) {
   return (
     <>
       <ButtonBack />
@@ -21,6 +21,21 @@ export default function ViewDetaiLangganan({ data }: { data: any }) {
         boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
       }}>
         <Box p={20}>
+          <Box pb={20}>
+            <Box style={{
+              border: `1px solid ${Warna.warnaBorder}`,
+              borderRadius: 10,
+              boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
+            }}>
+              <Box p={20}>
+                <Box pb={10}>
+                  <Text fz={20} c={Warna.biruTua}></Text>
+                </Box>
+                <Text>Name : {data.langganan.name}</Text>
+                <Text>Description : {data.langganan.description}</Text>
+              </Box>
+            </Box>
+          </Box>
           <Grid>
             <Grid.Col span={3}>
               <Box>
@@ -29,10 +44,10 @@ export default function ViewDetaiLangganan({ data }: { data: any }) {
                   padding: 10,
                   borderRadius: 10,
                 }}>
-                  <Text c={"grey"} pl={10} >Total Terbeli</Text>
+                  <Text c={"grey"} pl={10}>Amount Sold</Text>
                   <Group gap={8} pt={20} pb={20} justify='center'>
                     <FaUserTag size={25} color={Warna.pink} />
-                    <Text c={"pink"} pt={5}>429 PEMBELI</Text>
+                    <Text c={"pink"} pt={5}>{terjual}</Text>
                   </Group>
                 </Box>
               </Box>
@@ -44,25 +59,10 @@ export default function ViewDetaiLangganan({ data }: { data: any }) {
                   padding: 10,
                   borderRadius: 10,
                 }}>
-                  <Text c={"grey"} pl={10} >Harga</Text>
-                  <Group gap={8} pt={20} pb={20} justify='center'>
-                    <TbReportMoney size={25} color={Warna.pink} />
-                    <Text c={"pink"} pt={5}>Rp.344.000</Text>
-                  </Group>
-                </Box>
-              </Box>
-            </Grid.Col>
-            <Grid.Col span={3}>
-              <Box>
-                <Box style={{
-                  backgroundColor: '#E5E9F1',
-                  padding: 10,
-                  borderRadius: 10,
-                }}>
-                  <Text c={"grey"} pl={10} >Time Update</Text>
+                  <Text c={"grey"} pl={10}>Last Updated</Text>
                   <Group gap={8} pt={20} pb={20} justify='center'>
                     <MdOutlineAccessTimeFilled size={25} color={Warna.pink} />
-                    <Text c={"pink"} pt={5}>3 BULAN</Text>
+                    <Text c={"pink"} pt={5}>{moment(data.langganan.updatedAt).format('Do MMMM YYYY, h:mm')}</Text>
                   </Group>
                 </Box>
               </Box>
@@ -78,21 +78,50 @@ export default function ViewDetaiLangganan({ data }: { data: any }) {
                 <Box pb={10}>
                   <Text fz={20} c={Warna.biruTua}>LIST FITUR</Text>
                 </Box>
-                <List
-                  spacing="xs"
-                  size="sm"
-                  center
-                  icon={
-                    <ThemeIcon color="pink" size={24} radius="xl">
-                      <FaRegCheckCircle style={{ width: 25, height: 25 }} />
-                    </ThemeIcon>
-                  }
-                >
-                  <List.Item>Clone or download repository from GitHub</List.Item>
-                  <List.Item>Install dependencies with yarn</List.Item>
-                  <List.Item>To start development server run npm start command</List.Item>
-                  <List.Item>Run tests to make sure your changes do not break the build</List.Item>
-                </List>
+                {data.fitur.map((v: any, i: any) => (
+                  <List
+                    key={i}
+                    spacing="xs"
+                    size="sm"
+                    center
+                    icon={
+                      <ThemeIcon color="pink" size={24} radius="xl">
+                        <FaRegCheckCircle style={{ width: 25, height: 25 }} />
+                      </ThemeIcon>
+                    }
+                  >
+                    <List.Item>{v}</List.Item>
+                  </List>
+                ))}
+              </Box>
+            </Box>
+          </Box>
+
+          <Box pt={20}>
+            <Box style={{
+              border: `1px solid ${Warna.warnaBorder}`,
+              borderRadius: 10,
+              boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.10)",
+            }}>
+              <Box p={20}>
+                <Box pb={10}>
+                  <Text fz={20} c={Warna.biruTua}>LIST HARGA</Text>
+                </Box>
+                {data.harga.map((v: any, i: any) => (
+                  <List
+                    key={i}
+                    spacing="xs"
+                    size="sm"
+                    center
+                    icon={
+                      <ThemeIcon color="pink" size={24} radius="xl">
+                        <FaRegCheckCircle style={{ width: 25, height: 25 }} />
+                      </ThemeIcon>
+                    }
+                  >
+                    <List.Item>name : {v.name}, price: Rp. {v.price}, duration: {v.rangeTime} days</List.Item>
+                  </List>
+                ))}
               </Box>
             </Box>
           </Box>

@@ -5,6 +5,7 @@ import ViewDetailLangganan from "./view/view_detail_langganan";
 import funGetListLangganan from "./fun/get_list_langganan";
 import funGetAllLanggananComponent from "./fun/get_all_langganan_component";
 import funGetOneLangganan from "./fun/get_one_langganan";
+import funGetOneDetailLangganan from "./fun/get_one_detail_langganan";
 
 export { ViewLangganan }
 export { ViewAddLangganan }
@@ -13,3 +14,4 @@ export { ViewDetailLangganan }
 export { funGetListLangganan }
 export { funGetAllLanggananComponent }
 export { funGetOneLangganan }
+export { funGetOneDetailLangganan }
