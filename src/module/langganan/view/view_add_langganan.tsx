@@ -1,6 +1,6 @@
 "use client"
 import { ButtonBack, Warna } from '@/module/_global';
-import { Box, Button, Grid, Group, Modal, MultiSelect, NumberInput, SimpleGrid, Stack, Text, TextInput, Textarea } from '@mantine/core';
+import { ActionIcon, Box, Button, Grid, Group, Modal, MultiSelect, NumberInput, SimpleGrid, Stack, Text, TextInput, Textarea } from '@mantine/core';
 import React, { useState } from 'react';
 import { useAtom } from 'jotai';
 import { isModalLangganan } from '../val/isModalLangganan';
@@ -17,6 +17,7 @@ import SubScript from '@tiptap/extension-subscript';
 import { Color } from '@tiptap/extension-color';
 import TextStyle from '@tiptap/extension-text-style';
 import { notifications } from '@mantine/notifications';
+import { GoTrash } from 'react-icons/go';
 
 export default function ViewAddLangganan({ komponen }: { komponen: any }) {
   const editor = useEditor({
@@ -228,7 +229,7 @@ export default function ViewAddLangganan({ komponen }: { komponen: any }) {
                       }}
                     />
                   </Grid.Col>
-                  <Grid.Col span={3}>
+                  <Grid.Col span={4}>
                     <NumberInput placeholder='000' label="Price"
                       leftSection={'Rp.'}
                       thousandSeparator={'.'}
@@ -240,15 +241,19 @@ export default function ViewAddLangganan({ komponen }: { komponen: any }) {
                       }}
                     />
                   </Grid.Col>
-                  <Grid.Col span={2} pt={32}>
+                  <Grid.Col span={1} pt={32}>
                     <Group justify='space-between'>
-                      <Button>edit</Button>
                       {(isNewListHarga.length == 1)
                         ?
-                        <Button disabled>delete</Button>
-                        : <Button onClick={() => onDeleteListHarga(i)}>delete</Button>
+                        <ActionIcon variant="outline" color='red' disabled size="input-sm" aria-label="Settings">
+                          <GoTrash />
+                        </ActionIcon>
+                        :
+                        <ActionIcon variant="outline" color='red' size="input-sm" aria-label="Settings"
+                          onClick={() => onDeleteListHarga(i)}>
+                          <GoTrash />
+                        </ActionIcon>
                       }
-
                     </Group>
                   </Grid.Col>
                 </Grid>

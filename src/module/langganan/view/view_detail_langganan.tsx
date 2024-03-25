@@ -7,7 +7,7 @@ import { TbReportMoney } from "react-icons/tb";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 
-export default function ViewDetaiLangganan({ id }: { id: string }) {
+export default function ViewDetaiLangganan({ data }: { data: any }) {
 
   return (
     <>

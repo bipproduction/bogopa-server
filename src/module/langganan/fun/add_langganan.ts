@@ -35,12 +35,14 @@ export default async function funAddLangganan({ body, harga }: { body: any, harg
 
    let dataHarga = []
    for (let index = 0; index < harga.length; index++) {
-      dataHarga.push({
-         idLangganan: insert.id,
-         name: harga[index].name,
-         rangeTime: harga[index].duration,
-         price: harga[index].price,
-      })
+      if (harga[index].name != "") {
+         dataHarga.push({
+            idLangganan: insert.id,
+            name: harga[index].name,
+            rangeTime: harga[index].duration,
+            price: harga[index].price,
+         })
+      }
    }
 
    await prisma.langgananRange.createMany({
